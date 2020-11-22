@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "955020468320",
+    "firebase_url": "https://oneone-9d9c8.firebaseio.com",
+    "project_id": "oneone-9d9c8",
+    "storage_bucket": "oneone-9d9c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955020468320:android:f407c19f30151e3fb6a305",
+        "android_client_info": {
+          "package_name": "filipkanar.pl.one"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955020468320-kpluh8klkhs8tbkssfhrc28ug8v25o1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "filipkanar.pl.one",
+            "certificate_hash": "3157bfe11441c9e2fc63d4c6c527751c5303b1b6"
+          }
+        },
+        {
+          "client_id": "955020468320-13bd1iihdlh46kkgnu3mk87jgqdoqclm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV93lJuwRFnLyRvLxw7lNH6VVPuC2AEIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955020468320-13bd1iihdlh46kkgnu3mk87jgqdoqclm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
