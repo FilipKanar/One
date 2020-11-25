@@ -5,11 +5,24 @@ import 'package:one/shared/button/authentication_button.dart';
 import 'package:one/shared/decoration/text_form_field_custom.dart';
 import 'package:one/shared/validator/validator_custom.dart';
 
+/*Dialog displayed if sign up method is different than email and password
+* */
 class ChooseDisplayNameDialog {
   final _formKey = GlobalKey<FormState>();
-  String _displayName='';
+  String _displayName = '';
 
-  void showAddPointDialog(BuildContext context, AuthenticationService _authenticationService) {
+  void showChangeUsernameDialog(
+      BuildContext context, AuthenticationService _authenticationService) {
+    void _confirmUsernameButtonOnPressed(
+        AuthenticationService authenticationService, BuildContext context) {
+      authenticationService.signInWithGoogle();
+      Navigator.pop(context);
+    }
+
+    void _confirmUsernameCallback() {
+      _confirmUsernameButtonOnPressed(_authenticationService, context);
+    }
+
     showDialog(
         barrierDismissible: true,
         context: context,
@@ -17,43 +30,52 @@ class ChooseDisplayNameDialog {
           return AlertDialog(
             title: Row(
               children: [
-                Image.asset('assets/logo/logo_no_text.png'),
+                Container(
+                  width: 50,
+                  child: Image.asset('assets/logo/logo_no_text.png'),
+                ),
                 Text(globals.chooseUsernameDialogTitle),
               ],
             ),
-            content: Column(
-              children: [
-                Text(globals.chooseUsernameDialogMessage),
-                Form(
-                  key: _formKey,
-                  child: TextFormFieldCustom().textFormFieldAuthentication(setDisplayName, ValidatorCustom().validateUsername, 'Username'),
-                )
-              ],
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 9),
+                    child: Text(globals.chooseUsernameDialogMessage),
+                  ),
+                  Form(
+                    key: _formKey,
+                    child: TextFormFieldCustom().textFormFieldAuthentication(
+                        _setDisplayName,
+                        ValidatorCustom().validateUsername,
+                        'Username'),
+                  )
+                ],
+              ),
             ),
             actions: <Widget>[
-              AuthenticationButton().buttonIcon(_confirmUsernameButtonOnPressed, text, icon),
-              new FlatButton(
-                  onPressed: () async {
-                    _authenticationService.signInWithGoogle(_displayName);
-                    Navigator.pop(context);
-                  },
-                  child: Text('Ok')),
+              Padding(
+                padding: const EdgeInsets.all(9.0),
+                child: AuthenticationButton().buttonIcon(
+                  _confirmUsernameCallback,
+                  'Continue',
+                  Icon(Icons.login, color: globals.greenerThanGreenAsGreenGreenCanBe,),
+                  background: true,
+                ),
+              ),
+              AuthenticationButton().button(
+                    () => Navigator.pop(context),
+                'Cancel',
+              ),
+
             ],
           );
         });
   }
-  
-  void _confirmUsernameCallback(){
-    _confirmUsernameButtonOnPressed(authenticationService, context)
-  }
 
-  void _confirmUsernameButtonOnPressed(AuthenticationService authenticationService, BuildContext context) {
-    authenticationService.signInWithGoogle(_displayName);
-    Navigator.pop(context);
-  }
-
-
-  setDisplayName(String displayName){
-    _displayName=displayName;
+  _setDisplayName(String displayName) {
+    _displayName = displayName;
   }
 }

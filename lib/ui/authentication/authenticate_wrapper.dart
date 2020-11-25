@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:one/ui/authentication/sign_in.dart';
+import 'package:one/ui/authentication/sign_up.dart';
 
-class Authenticate extends StatefulWidget {
+class AuthenticateWrapper extends StatefulWidget {
   @override
   _AuthenticateState createState() => _AuthenticateState();
 }
 
-class _AuthenticateState extends State<Authenticate> {
-  bool showSignIn = true;
-  void changeSignInSignUp(){
+class _AuthenticateState extends State<AuthenticateWrapper> {
+  bool _showSignIn = true;
+
+  void _changeSignInSignUp() {
     setState(() {
-      showSignIn = !showSignIn;
+      _showSignIn = !_showSignIn;
     });
   }
-
+//Shows Sing In/ Sign Up widget depending on _showSignIn bool value
   @override
   Widget build(BuildContext context) {
-    return showSignIn ? SignIn() : SignUp();
+    return Scaffold(
+        body: _showSignIn
+            ? SignIn(
+                toggleView: _changeSignInSignUp,
+              )
+            : SignUp(
+                toggleView: _changeSignInSignUp,
+              ),);
   }
 }
