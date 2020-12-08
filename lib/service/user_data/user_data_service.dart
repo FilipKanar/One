@@ -17,7 +17,7 @@ class UserDataService {
         .add({
           'userId': userData.userId,
           'displayName': googleAuth != null ? 'Google User' : userData.displayName,
-          'collectingTrash': 0,
+          'trashCollected': 0,
           'pointsCreated': 0,
           'pictureDownloadURL': 'defaultPicture',
           'googleAuth' : googleAuth == null ? 'GoogleAuth not used.' : googleAuth,
@@ -34,7 +34,6 @@ class UserDataService {
   //Checks by user Id if UserData exists in database
   Future<bool> checkUserExistenceById(String userId) async {
     bool check= true;
-    var res =
     await _userDataCollection.where('userId', isEqualTo: userId).get().then((value) {
       if (value.docs.isEmpty) {
         check = false;
@@ -44,12 +43,56 @@ class UserDataService {
     });
     return check;
   }
-
   Stream<UserData> get userData {
     return _userDataCollection
         .where('userId', isEqualTo: userId)
         .snapshots()
-        .map(UserDataConvertFromFirebase().userDataFromFirebase);
+        .map(UserDataConvertFromFirebase().userDataFromSnapshotFirst);
   }
+
+  Future setId(String userDataId) async {
+    return await _userDataCollection.doc(userDataId).update({
+      'userDataId': userDataId,
+    });
+  }
+
+  Future updateUserPictureURL(String pictureDownloadURL, String userDataId) async {
+    return await _userDataCollection.doc(userDataId).update({
+      'pictureDownloadURL': pictureDownloadURL,
+    });
+  }
+
+  Future increaseUserAchievementField(
+      String userDataId, String achievementField) async {
+    return await _userDataCollection.doc(userDataId).update({
+      '$achievementField': FieldValue.increment(1),
+    });
+  }
+
+  Future updateUserDisplayName(String displayName, String userDataId) async {
+    return await _userDataCollection.doc(userDataId).update({
+      'displayName': displayName,
+    });
+  }
+
+  Stream<List<UserData>> get users {
+    return _userDataCollection
+        .snapshots()
+        .map(UserDataConvertFromFirebase().userDataFromSnapshotList);
+  }
+  
+  Future<String> getUserDisplayNameById(String userId) async {
+    return await _userDataCollection.where('userId', isEqualTo: userId).limit(1).get().then((value) {
+      return UserDataConvertFromFirebase().userDisplayNameFromSnapshot(value);
+    });
+  }
+
+  Future<String> getUserPictureDownloadUrlById(String userId) async {
+    return await _userDataCollection.where('userId', isEqualTo: userId).limit(1).get().then((value) {
+      return UserDataConvertFromFirebase().userPictureDownloadUrlFromSnapshot(value);
+    });
+  }
+
+
 
 }

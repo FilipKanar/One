@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one/service/authentication/authentication_service.dart';
 import 'package:one/shared/button/authentication_button.dart';
-import 'package:one/shared/decoration/input_decoration_custom.dart';
 import 'package:one/shared/decoration/text_form_field_custom.dart';
 import 'package:one/shared/validator/validator_custom.dart';
 import 'package:one/ui/authentication/authentication_wigets/sign_up_messages.dart';
@@ -54,7 +53,7 @@ class _SignInState extends State<SignUp> {
                 /*Sign Up Messages */
                 SignUpMessages(),
                 /*Sign Up Text Form Fields */
-                TextFormFieldCustom().textFormFieldAuthentication(setEmail,
+                TextFormFieldCustom().textFormFieldAuthentication(setDisplayName,
                     ValidatorCustom().validateUsername, 'Username'),
                 TextFormFieldCustom().textFormFieldAuthentication(setEmail,
                     ValidatorCustom().validateEmail, 'Email'),

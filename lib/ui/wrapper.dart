@@ -6,7 +6,6 @@ import 'package:one/ui/authentication/authenticate_wrapper.dart';
 import 'package:one/ui/home/home_view.dart';
 import 'package:provider/provider.dart';
 
-
 class Wrapper extends StatefulWidget {
   @override
   _WrapperState createState() => _WrapperState();
@@ -19,6 +18,9 @@ class _WrapperState extends State<Wrapper> {
     final userFromFirebaseUser = Provider.of<UserFromFirebaseUser>(context);
     return userFromFirebaseUser == null
         ? AuthenticateWrapper()
-        : StreamProvider<UserData>.value(value: UserDataService(userId: userFromFirebaseUser.uid).userData,child: HomeView(),);
+        : StreamProvider<UserData>.value(
+            value: UserDataService(userId: userFromFirebaseUser.uid).userData,
+            child: HomeView(),
+          );
   }
 }

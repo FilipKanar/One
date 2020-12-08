@@ -5,7 +5,6 @@ class TextFormFieldCustom {
   Widget textFormFieldAuthentication(
       Function callbackInputValue, Function validator, String text,
       {bool obscureText = false, String validatorCompareString}) {
-    print('Vali: $validatorCompareString');
     return Container(
       margin: EdgeInsets.fromLTRB(27, 4.5, 27, 4.5),
       child: TextFormField(

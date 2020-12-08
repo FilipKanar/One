@@ -6,6 +6,11 @@ class UserData {
   final String googleAuth;
 //User display name visible to other users
   final String displayName;
+//User profile picture download URL
+  final String pictureDownloadURL;
+//
+  final int trashCollected;
+  final int pointsCreated;
 
-  UserData({this.userId,this.userDataId,this.displayName,this.googleAuth});
+  UserData({this.userId,this.userDataId,this.displayName,this.googleAuth,this.pictureDownloadURL,this.pointsCreated,this.trashCollected});
 }
