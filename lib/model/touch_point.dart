@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+//Model for single touch at Canvas
 class TouchPoint {
+//Style to use when drawing at Canvas
   Paint paint;
-  Offset points;
-  TouchPoint({this.paint,this.points});
+//Point representation
+  Offset point;
+  TouchPoint({this.paint,this.point});
 }

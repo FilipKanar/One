@@ -64,6 +64,8 @@ dev_dependencies:
   firebase_storage: ^5.2.0
 #Saving edited picture as screenshot
   screenshot: ^0.1.1
+#Url launch - privacy policy
+  url_launcher: ^5.7.10
 
 
 # For information on the generic Dart part of this file, see the

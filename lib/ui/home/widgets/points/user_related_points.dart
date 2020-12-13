@@ -91,16 +91,6 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                                       IconButton(
                                         icon: Icon(Icons.comment, color: globals.green,),
                                         onPressed: () {
-                                          PointDeleteDialog()
-                                              .showAddPointDialog(
-                                                  context,
-                                                  userRelatedPointsList[index]
-                                                      .pointId);
-                                        },
-                                      ),
-                                      IconButton(
-                                        icon: Icon(Icons.delete, color: globals.lightWarningColor,),
-                                        onPressed: () {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -123,6 +113,16 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                                               ),
                                             ),
                                           );
+                                        },
+                                      ),
+                                      IconButton(
+                                        icon: Icon(Icons.delete, color: globals.lightWarningColor,),
+                                        onPressed: () {
+                                          PointDeleteDialog()
+                                              .showAddPointDialog(
+                                              context,
+                                              userRelatedPointsList[index]
+                                                  .pointId);
                                         },
                                       ),
                                     ],

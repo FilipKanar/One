@@ -37,7 +37,7 @@ class _EditPictureState extends State<EditPicture> {
             setState(() {
               RenderBox renderBox = context.findRenderObject();
               touchPointList.add(TouchPoint(
-                  points: renderBox.globalToLocal(details.globalPosition),
+                  point: renderBox.globalToLocal(details.globalPosition),
                   paint: Paint()
                     ..strokeCap = strokeType
                     ..isAntiAlias = true
@@ -49,7 +49,7 @@ class _EditPictureState extends State<EditPicture> {
             setState(() {
               RenderBox renderBox = context.findRenderObject();
               touchPointList.add(TouchPoint(
-                  points: renderBox.globalToLocal(details.globalPosition),
+                  point: renderBox.globalToLocal(details.globalPosition),
                   paint: Paint()
                     ..strokeCap = strokeType
                     ..isAntiAlias = true

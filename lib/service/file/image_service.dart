@@ -4,6 +4,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:one/model/map/cleaning.dart';
 
+//Contains method used to manage images
 class ImageService{
 
   Future getCameraImage () async {
@@ -15,7 +16,7 @@ class ImageService{
   }
 
 
-
+//Uploads file to fire store
   Future<String> uploadFile(Cleaning cleaning, File image) async {
     Reference storageReference =
     FirebaseStorage.instance.ref().child('pictures/cleanings/${cleaning.cleaningId}.png');

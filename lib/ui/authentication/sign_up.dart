@@ -5,6 +5,7 @@ import 'package:one/shared/decoration/text_form_field_custom.dart';
 import 'package:one/shared/validator/validator_custom.dart';
 import 'package:one/ui/authentication/authentication_wigets/sign_up_messages.dart';
 import 'package:toast/toast.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /*User Sign In Form*/
 class SignUp extends StatefulWidget {
@@ -27,6 +28,7 @@ class _SignInState extends State<SignUp> {
   String _email = '';
   String _password = '';
   String _displayName = '';
+  bool _privacyPolicy=false;
 
   /*Sign In error message*/
   String _errorMessage = '';
@@ -63,6 +65,33 @@ class _SignInState extends State<SignUp> {
                 TextFormFieldCustom().textFormFieldAuthentication(
                     null, ValidatorCustom().validatePasswordConfirm, 'Confirm password',
                     obscureText: true, validatorCompareString: _password),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.5),
+                      child: Checkbox(
+                        value: false,
+                        onChanged: (value) {
+                          setState(() {
+                            _privacyPolicy=value;
+                          });
+                        } ,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0,4.5,0,4.5),
+                      child: Text('Accept '),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0,4.5,4.5,4.5),
+                      child: InkWell(
+                        child: Text('Privacy Policy'),
+                        onTap: () => launch('https://www.freeprivacypolicy.com/live/d726f50b-f379-4cd7-b0bc-36bb8d8bca00'),
+                      ),
+                    )
+                  ],
+                ),
                 /*Sign Up Buttons*/
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -82,7 +111,7 @@ class _SignInState extends State<SignUp> {
   }
 //Begin sign up with email and password process
   signUpOnPressed() async {
-    if (_signInFormKey.currentState.validate()) {
+    if (_signInFormKey.currentState.validate() && _privacyPolicy==true) {
       dynamic result = await _authenticationService.signUpWithEmailAndPassword(
           _email, _password,_displayName);
       if (result == null) {

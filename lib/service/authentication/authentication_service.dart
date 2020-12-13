@@ -4,10 +4,12 @@ import 'package:one/service/authentication/email_password/email_password_authent
 import 'package:one/service/authentication/google/google_authentication.dart';
 import 'package:one/service/convert_data_from_firebase/user_convert_from_firebase.dart';
 
+
+//Used for signIn/signUp/signOut methods
+// Currently available authentication: email and password, google
 class AuthenticationService {
 
   FirebaseAuth _firebaseAuth;
-
 //Contains methods to authenticate with:
   //email and password
   EmailPasswordAuthentication _emailPasswordAuthentication;
@@ -20,7 +22,7 @@ class AuthenticationService {
     _googleAuthentication= GoogleAuthentication(_firebaseAuth);
   }
 
-  //Stream returning mapped user from Firebase. Used for identity check.
+//Stream returning mapped user from Firebase. Used for identity check.
   Stream<UserFromFirebaseUser> get user  {
     return _firebaseAuth.authStateChanges().map(UserFromFirebaseUserConvert().userFromFirebaseUser);
   }

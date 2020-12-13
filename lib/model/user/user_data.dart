@@ -8,7 +8,7 @@ class UserData {
   final String displayName;
 //User profile picture download URL
   final String pictureDownloadURL;
-//
+//Cleaning stats
   final int trashCollected;
   final int pointsCreated;
 

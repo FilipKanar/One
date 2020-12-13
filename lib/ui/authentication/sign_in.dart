@@ -5,6 +5,7 @@ import 'package:one/shared/button/authentication_button.dart';
 import 'package:one/shared/decoration/text_form_field_custom.dart';
 import 'package:one/shared/validator/validator_custom.dart';
 import 'package:toast/toast.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:one/information/test_user_data.dart' as testUserData;
 
 /*User Sign In Form*/
@@ -27,6 +28,7 @@ class _SignInState extends State<SignIn> {
   /*Form fields*/
   String _email = '';
   String _password = '';
+  bool _privacyPolicy=false;
 
   /*Sign In error message*/
   String _errorMessage = '';
@@ -64,6 +66,33 @@ class _SignInState extends State<SignIn> {
                         .button(widget.toggleView, 'Register'),
                   ],
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.5),
+                      child: Checkbox(
+                        value: _privacyPolicy,
+                        onChanged: (value) {
+                          setState(() {
+                            _privacyPolicy=value;
+                          });
+                        } ,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0,4.5,0,4.5),
+                      child: Text('Accept '),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0,4.5,4.5,4.5),
+                      child: InkWell(
+                        child: Text('Privacy Policy'),
+                        onTap: () => launch('https://www.freeprivacypolicy.com/live/d726f50b-f379-4cd7-b0bc-36bb8d8bca00'),
+                      ),
+                    )
+                  ],
+                ),
                 GoogleSignInButton(
                   onPressed: _signInWithGoogleOnPressed,
                 ),
@@ -90,7 +119,13 @@ class _SignInState extends State<SignIn> {
   }
   //Begin Sign In with google process
   _signInWithGoogleOnPressed() async {
-    await _authenticationService.signInWithGoogle();
+    if(_privacyPolicy==false){
+      setState(() {
+        _errorMessage='Privacy Policy required for google authentication';
+      });
+    } else {
+      await _authenticationService.signInWithGoogle();
+    }
   }
 
   _overviewOnPressed() async {

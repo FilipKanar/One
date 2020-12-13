@@ -2,11 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:one/model/trash_point_comment.dart';
 import 'package:one/model/user/user_data.dart';
 
+//Contains methods used to manage comments
 class CommentService {
 
   final CollectionReference commentPointsDataCollection =
   FirebaseFirestore.instance.collection('comments');
 
+ //Adds Comment to firebase
   Future addComment(TrashPointComment pointComment, String pointName) async {
     return await commentPointsDataCollection.add({
       'pointId' : pointComment.pointId,
@@ -24,6 +26,7 @@ class CommentService {
     });
   }
 
+//Deletes all comments at selected point, used during trash point disposal
   Future deleteCommentsAtPoint(String pointId) async {
     return await commentPointsDataCollection.where('pointId', isEqualTo: pointId).get().then((value) {
       for(DocumentSnapshot documentSnapshot in value.docs){
@@ -44,11 +47,6 @@ class CommentService {
       );
     }).toList();
   }
-
-  Stream<List<TrashPointComment>> get comments {
-    return commentPointsDataCollection.snapshots().map((event) => _pointCommentDataFromSnapshot(event));
-  }
-
 
   Stream<List<TrashPointComment>> getCommentsAtPoint(String pointId) {
     return commentPointsDataCollection.where('pointId', isEqualTo: pointId).snapshots().map(_pointCommentDataFromSnapshot);

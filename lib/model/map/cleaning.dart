@@ -1,13 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+//Model of single cleaning
 class Cleaning{
-  String cleaningId;
-  String pointId;
-  String userId;
-  String downloadPictureUrl;
-  Timestamp timestamp;
+//Timestamp
   DateTime creationDateTime;
+//Cleaning data
+  String cleaningId;
+  String downloadPictureUrl;
+//Trash point data
+  String pointId;
+//Creator Id
+  String userId;
 
-  Cleaning({this.cleaningId,this.pointId,this.userId,this.downloadPictureUrl,this.timestamp,this.creationDateTime});
+  Cleaning({this.cleaningId,this.pointId,this.userId,this.downloadPictureUrl,this.creationDateTime});
 
 }

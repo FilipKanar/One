@@ -3,6 +3,7 @@ import 'package:one/model/user/user_data.dart';
 import 'package:one/service/convert_data_from_firebase/user_convert_from_firebase.dart';
 import 'package:one/service/user_data/user_data_service.dart';
 
+//Contains authentication methods used with email and password authentication.
 class EmailPasswordAuthentication {
 
   final FirebaseAuth _firebaseAuth;
