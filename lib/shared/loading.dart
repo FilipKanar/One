@@ -8,9 +8,8 @@ class Loading extends StatelessWidget {
 
     return SafeArea(
       child: Container(
-        color: Colors.lightGreen[100],
         child: SpinKitRotatingCircle(
-          color: Colors.lightGreen,
+          color: Colors.lightGreen[100],
           size: 50.0,
         ),
       ),

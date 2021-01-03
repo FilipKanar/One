@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one/service/user_data/user_data_service.dart';
+import 'package:one/ui/home/screens/image_fullscreen.dart';
 
 class UserPicture extends StatefulWidget {
   final String userId;
@@ -27,9 +28,20 @@ class _UserPictureState extends State<UserPicture> {
                   )
                 : ClipRRect(
                     borderRadius: BorderRadius.circular(9.0),
-                    child: Image.network(
-                      snapshot.data,
-                      width: widget.pictureHeight,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ImageFullscreen(snapshot.data),
+                          ),
+                        );
+                      },
+                      child: Image.network(
+                        snapshot.data,
+                        width: widget.pictureHeight,
+                      ),
                     ),
                   );
           } else {

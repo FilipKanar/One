@@ -7,6 +7,7 @@ import 'package:one/service/map/cleaning/cleaning_service.dart';
 import 'package:one/shared/dialog/point_delete_dialog.dart';
 import 'package:one/shared/loading.dart';
 import 'package:one/ui/home/screens/comments.dart';
+import 'package:one/ui/home/screens/image_fullscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:one/information/globals.dart' as globals;
 
@@ -57,7 +58,18 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                               child: (urlList[index] == null ||
                                       urlList[index].isEmpty)
                                   ? Loading()
-                                  : Image.network(urlList[index]),
+                                  : InkWell(
+                                      child: Image.network(urlList[index]),
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                ImageFullscreen(urlList[index]),
+                                          ),
+                                        );
+                                      },
+                                    ),
                             ),
                           ),
                           Expanded(
