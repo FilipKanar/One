@@ -7,6 +7,7 @@ import 'package:one/model/map/cleaning.dart';
 import 'package:one/model/map/trash_point.dart';
 import 'package:one/model/user/user_data.dart';
 import 'package:one/service/file/image_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/map/cleaning/cleaning_service.dart';
 import 'package:one/service/map/trash_point/trash_point_service.dart';
 import 'package:one/service/user_data/user_data_service.dart';
@@ -57,7 +58,7 @@ class _AddPointState extends State<AddPoint> {
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50),
               child: AppBarCustom(
-                title: 'New cleaning point',
+                title: AppLocalization.of(context).addPointPlaceholder,
               ),
             ),
             body: SingleChildScrollView(
@@ -102,10 +103,10 @@ class _AddPointState extends State<AddPoint> {
                         child: TextFormField(
                           autofocus: true,
                           validator: (val) =>
-                              val.length < 5 ? 'Provide description longer than 5 signs.' : null,
+                              val.length < 5 ? AppLocalization.of(context).descriptionLengthValidator : null,
                           onChanged: (val) => trashPoint.description = val,
                           decoration: InputDecoration(
-                              hintText: 'Name this point.',
+                              hintText: AppLocalization.of(context).pointNameHintText,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Colors.lightGreen),
@@ -121,8 +122,8 @@ class _AddPointState extends State<AddPoint> {
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
                               if(userData.userId == testUserData.testUserId){
-                                WarningDialog().showWarningDialog(context, globals.testUserWarningTitle, globals.testUserWarningMessage);
-                                WarningDialog().showWarningDialog(context, globals.testUserWarningTitle, globals.testUserWarningMessage);
+                                WarningDialog().showWarningDialog(context, AppLocalization.of(context).testUserWarningTitle, AppLocalization.of(context).testUserWarningMessage);
+                                WarningDialog().showWarningDialog(context, AppLocalization.of(context).testUserWarningTitle, AppLocalization.of(context).testUserWarningMessage);
                               }else{
                                 trashPoint.cleaned = false;
                                 trashPoint.creatorId = userData.userId;
@@ -142,7 +143,7 @@ class _AddPointState extends State<AddPoint> {
                             }
                           },
                           child: Text(
-                            'Save',
+                            AppLocalization.of(context).publicPlaceholder,
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.green,

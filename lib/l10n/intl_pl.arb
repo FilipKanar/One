@@ -1,0 +1,453 @@
+{
+  "@@last_modified": "2021-01-02T17:16:41.433436",
+  "errorSignInCredentials": "Could not sign in with those credentials!",
+  "@errorSignInCredentials": {
+    "description": "Error message Sign In Credentials",
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorSignUpCredentials": "Could not sign up with those credentials",
+  "@errorSignUpCredentials": {
+    "description": "Error message Sign Up Credentials",
+    "type": "text",
+    "placeholders": {}
+  },
+  "appOverview": "Podgląd",
+  "@appOverview": {
+    "description": "Button text for signing to overview app",
+    "type": "text",
+    "placeholders": {}
+  },
+   "emailPlaceholder": "Email",
+    "@emailPlaceholder": {
+        "description": "Email Placeholder",
+        "type": "text",
+        "placeholders": {}
+      },
+    "passwordPlaceholder": "Hasło",
+    "@passwordPlaceholder": {
+        "description": "Password Placeholder",
+        "type": "text",
+        "placeholders": {}
+      },
+  "confirmPasswordPlaceholder": "Potwierdź hasło",
+  "@confirmPasswordPlaceholder": {
+    "description": "Confirm Password Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+    "logInPlaceholder": "Zaloguj",
+    "@logInPlaceholder": {
+        "description": "Log In Placeholder",
+        "type": "text",
+        "placeholders": {}
+      },
+  "registerPlaceholder": "Zarejestruj",
+  "@registerPlaceholder": {
+    "description": "Password Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+    "acceptPlaceholder": "Zaakceptuj",
+    "@acceptPlaceholder": {
+        "description": "Accept Placeholder",
+        "type": "text",
+        "placeholders": {}
+      },
+    "privacyPolicyPlaceholder": "Polityka Prywatności",
+    "@privacyPolicyPlaceholder": {
+        "description": "Privacy Policy Placeholder",
+        "type": "text",
+        "placeholders": {}
+      },
+    "loginSuccessfulToast": "Zalogowano pomyślnie",
+    "@loginSuccessfulToast": {
+        "description": "Toast message for successful login",
+        "type": "text",
+        "placeholders": {}
+      },
+  "registrationSuccessfulToast": "Zarejestrowano Pomyślnie",
+  "@registrationSuccessfulToast": {
+    "description": "Toast message for successful registration",
+    "type": "text",
+    "placeholders": {}
+  },
+    "googlePrivacyPolicyMessage": "Polityka Prywatności jest wymagana do zalogowania się",
+    "@googlePrivacyPolicyMessage": {
+        "description": "Error message for google authentication without privacy policy check",
+        "type": "text",
+        "placeholders": {}
+      },
+    "testUserLogInErrorMessage": "Nie można zallogować na konto testowe",
+    "@testUserLogInErrorMessage": {
+        "description": "Error message for overview",
+        "type": "text",
+        "placeholders": {}
+      },
+  "appTitle": "One",
+  "@appTitle": {
+    "description": "App title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userPositionPlaceholder": "Twoja pozycja",
+  "@userPositionPlaceholder": {
+    "description": "User position",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userScorePlaceholder": "Twój wynik",
+  "@userScorePlaceholder": {
+    "description": "User score",
+    "type": "text",
+    "placeholders": {}
+  },
+  "profilePlaceholder": "Profil",
+  "@profilePlaceholder": {
+    "description": "Profile screen title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "changePlaceholder": "Zmień",
+  "@changePlaceholder": {
+    "description": "Change",
+    "type": "text",
+    "placeholders": {}
+  },
+  "trashCollectedPlaceholder": "Zebrane śmieci",
+  "@trashCollectedPlaceholder": {
+    "description": "Trash Collected",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pointsCreatedPlaceholder": "Stworzone punkty",
+  "@pointsCreatedPlaceholder": {
+    "description": "Points Created placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noPictureProvidedErrorTitle": "Brak zdjęcia",
+  "@noPictureProvidedErrorTitle": {
+    "description": "No picture provided during point creation title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noPictureProvidedErrorMessage": "Zrób zdjęcie miejsca w którym zanjdują się śmieci. Zaznacz JEDEN który wyniesiesz.Ciesz się.",
+  "@noPictureProvidedErrorMessage": {
+    "description": "No picture provided during point creation error message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "publicPlaceholder": "Opublikuj",
+  "@savePlaceholder": {
+    "description": "Public placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addPointPlaceholder": "Dodaj Punkt",
+  "@addPointPlaceholder": {
+    "description": "Add New Point placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newCleaningPointTitle": "Dodaj nowy punkt",
+  "@newCleaningPointTitle": {
+    "description": "New cleaning point screen title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "descriptionLengthValidator": "Opis musi być dłuższy niż 5 znaków",
+  "@descriptionLengthValidator": {
+    "description": "Validator message for description length < 5",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pointNameHintText": "Nazwij punkt",
+  "@pointNameHintText": {
+    "description": "Point Name Hint Text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "saveAndContinueTip": "Zapisz i kontynuuj",
+  "@saveAndContinueTip": {
+    "description": "Save and continue tip text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "commentsScreenTitle": "Komentarze",
+  "@commentsScreenTitle": {
+    "description": "Comments Screen Title text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newCommentHintText": "Nowy komentarz",
+  "@newCommentHintText": {
+    "description": "New comment hint text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newCommentLengthValidatorText": "Comentarz musi składać się z minimum 10 znaków",
+  "@newCommentLengthValidatorText": {
+    "description": "New comment length <10 validator text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newCommentAddErrorMessage": "Błąd dodawania komentarza",
+  "@newCommentAddErrorMessage": {
+    "description": "Error message for comment add failure",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noCommentsToDisplayMessage": "Brak komentarzy do wyświetlenia",
+  "@noCommentsToDisplayMessage": {
+    "description": "No comments to display message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noPointsToDisplayMessage": "Brak punktów do wyświetlenia",
+  "@noPointsToDisplayMessage": {
+    "description": "No Points to display message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "firstCleaningAchievementTextTitle": "Pierwsze sprzątanie",
+  "@firstCleaningAchievementTextTitle": {
+    "description": "Achievement field title: First Cleaning",
+    "type": "text",
+    "placeholders": {}
+  },
+  "firstCleaningAchievementTextMessage": "Stwórz nowy punkt lub dołącz się do sprzątania innego",
+  "@firstCleaningAchievementTextMessage": {
+    "description": "Achievement field message: First Cleaning ",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fiveCleaningAchievementTextTitle": "Pięć śmieci",
+  "@fiveCleaningAchievementTextTitle": {
+    "description": "Achievement field title: Five Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fiveCleaningAchievementTextMessage": "Podnieś 5 śmieci",
+  "@fiveCleaningAchievementTextMessage": {
+    "description": "Achievement field: Clean Five times",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tenCleaningAchievementTextTitle": "Dziesięć śmieci",
+  "@tenCleaningAchievementTextTitle": {
+    "description": "Achievement field title: Ten Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tenCleaningAchievementTextMessage": "Podnieś dziesięć śmieci",
+  "@tenCleaningAchievementTextMessage": {
+    "description": "Achievement field: Clean Ten times",
+    "type": "text",
+    "placeholders": {}
+  },
+  "twentyFiveCleaningAchievementTextTitle": "Dwadzieścia pięć śmieci",
+  "@twentyFiveCleaningAchievementTextTitle": {
+    "description": "Achievement field title: Twenty Five Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
+  "twentyFiveCleaningAchievementTextMessage": "Podnieś 25 śmieci",
+  "@twentyFiveCleaningAchievementTextMessage": {
+    "description": "Achievement field: Clean Twenty Five times",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fiftyCleaningAchievementTextTitle": "Pięćdziesiąt śmieci",
+  "@fiftyFiveCleaningAchievementTextTitle": {
+    "description": "Achievement field title: Fifty Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fiftyFiveCleaningAchievementTextMessage": "Podnieś pięćdziesiąt śmieci",
+  "@fiftyCleaningAchievementTextMessage": {
+    "description": "Achievement field: Clean Fifty times",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hundredCleaningAchievementTextTitle": "Sto śmieci",
+  "@hundredFiveCleaningAchievementTextTitle": {
+    "description": "Achievement field title: Hundred Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hundredFiveCleaningAchievementTextMessage": "Podnieś sto śmieci",
+  "@hundredCleaningAchievementTextMessage": {
+    "description": "Achievement field: Clean Hundred times",
+    "type": "text",
+    "placeholders": {}
+  },
+  "firstPointAchievementTextTitle": "Pierwszy punkt",
+  "@firstPointAchievementTextTitle": {
+    "description": "Achievement field title: Create One cleaning point",
+    "type": "text",
+    "placeholders": {}
+  },
+  "firstPointAchievementTextMessage": "Stwórz nowy punkt do posprzątania",
+  "@firstPointAchievementTextMessage": {
+    "description": "Achievement field: Create One point",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fivePointAchievementTextTitle": "Pięć punktów",
+  "@fivePointAchievementTextTitle": {
+    "description": "Achievement field title: Create Five cleaning points",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fivePointAchievementTextMessage": "Stwórz 5 punktów",
+  "@fivePointAchievementTextMessage": {
+    "description": "Achievement field: Create Five points",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tenPointAchievementTextTitle": "Dziesięć punktów",
+  "@tenPointAchievementTextTitle": {
+    "description": "Achievement field title: Create Ten cleaning points",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tenPointAchievementTextMessage": "Stwórz 10 punktów",
+  "@tenPointAchievementTextMessage": {
+    "description": "Achievement field: Create Ten points",
+    "type": "text",
+    "placeholders": {}
+  },
+  "twentyFivePointAchievementTextTitle": "Dwadzieścia pięć punktów",
+  "@twentyFiveAchievementTextTitle": {
+    "description": "Achievement field title: Create Twenty five cleaning points",
+    "type": "text",
+    "placeholders": {}
+  },
+  "twentyFivePointAchievementTextMessage": "Stwórz 25 punktów",
+  "@twentyFivePointAchievementTextMessage": {
+    "description": "Achievement field: Create Twenty five points",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fiftyPointAchievementTextTitle": "Pięćdziesiąt punktów",
+  "@fiftyFiveAchievementTextTitle": {
+    "description": "Achievement field title: Create Fifty cleaning points",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fiftyPointAchievementTextMessage": "Stwórz 50 punktów",
+  "@fiftyFivePointAchievementTextMessage": {
+    "description": "Achievement field: Create Fifty points",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addPointButtonText": "Dodaj nowy punkt",
+  "@addPointButtonText": {
+    "description": "Button message for creating new point at current location",
+    "type": "text",
+    "placeholders": {}
+  },
+  "changeUsernamePlaceholder": "Zmień nazwę użytkownika",
+  "@changeUsernamePlaceholder": {
+    "description": "Change username placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "usernamePlaceholder": "Nazwa użytkownika",
+  "@usernamePlaceholder": {
+    "description": "Username Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "scorePlaceholder": "Wynik",
+  "@scorePlaceholder": {
+    "description": "Score placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "provideValidEmailValidationText": "Podaj poprawny adres Email",
+  "@provideValidEmailValidationText": {
+    "description": "Email validation error message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordLengthValidationText": "Hasło musi składać się przynajmniej z 6 zanków oraz zawierać jedną cyfrę i wielką literę.",
+  "@passwordLengthValidationText": {
+    "description": "Password validation error message, The password must be at least 6 characters long and contain at least 1 numeric and capital letter",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordConformationValidationText": "Hasła różnią się od siebie",
+  "@passwordConformationValidationText": {
+    "description": "Password confirmation, Passwords do not match message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "usernameLengthValidationText": "Nazwa użytkownia musi składać się przynajmniej z 6 znaków",
+  "@usernameLengthValidationText": {
+    "description": "The username must be at least 6 characters long",
+    "type": "text",
+    "placeholders": {}
+  },
+  "chooseUsernameDialogMessage": "Nazwa użytkowanika będzie widoczna dla innych użytkowników",
+  "@chooseUsernameDialogMessage": {
+    "description": "Your username will be visible to other users",
+    "type": "text",
+    "placeholders": {}
+  },
+  "locationPermissionWarningTitle": "Lokalizacja",
+  "@locationPermissionWarningTitle": {
+    "description": "Permission warning title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "locationPermissionWarningMessage": "Aby korzystać z aplikacji zezwól na lokalizację",
+  "@locationPermissionWarningMessage": {
+    "description": "Permission warning message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "storagePermissionWarningTitle": "Pamięć",
+  "@storagePermissionWarningTitle": {
+    "description": "Storage permission warning title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "storagePermissionWarningMessage": "Wymagane pozwolenie na przechowywanie",
+  "@storagePermissionWarningMessage": {
+    "description": "Storage permission required warning message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "testUserWarningTitle": "Użytkownik testowy",
+  "@testUserWarningTitle": {
+    "description": "Test User",
+    "type": "text",
+    "placeholders": {}
+  },
+  "testUserWarningMessage": "Jesteś zalogowany jako użytkownik testowy. Załóż konto by kontynuować.",
+  "@testUserWarningMessage": {
+    "description": "Test User warning message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "continuePlaceholder": "Kontynuuj",
+  "@continuePlaceholder": {
+    "description": "Continue placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancelPlaceholder": "Anuluj",
+  "@cancelPlaceholder": {
+    "description": "Cancel placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "allowPermissionPlaceholder": "Zezwól",
+  "@allowPermissionPlaceholder": {
+    "description": "Allow Permission Placeholder",
+    "type": "text",
+    "placeholders": {}
+  }
+  }

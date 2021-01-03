@@ -5,9 +5,7 @@ class PermissionService {
   Future<bool> awaitLocationPermissions() async {
     try{
       PermissionStatus permission = await Permission.locationWhenInUse.status;
-      print('1');
       if(permission != PermissionStatus.granted){
-        print('2');
         await Permission.locationWhenInUse.request();
         permission = await Permission.locationWhenInUse.status;
         return permission != PermissionStatus.granted ? false : true;

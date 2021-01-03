@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:one/information/globals.dart' as globals;
 import 'package:one/shared/button/authentication_button.dart';
 
 /*Displays warning

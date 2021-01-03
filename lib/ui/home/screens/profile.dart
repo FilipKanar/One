@@ -7,6 +7,7 @@ import 'package:one/model/user/user_data.dart';
 import 'package:one/service/comment/comment_service.dart';
 import 'package:one/service/file/image_service.dart';
 import 'package:one/service/file/user_storage_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/map/trash_point/trash_point_service.dart';
 import 'package:one/shared/appbar/AppBarCustom.dart';
 import 'package:one/shared/button/authentication_button.dart';
@@ -35,7 +36,7 @@ class _ProfileState extends State<Profile> {
         preferredSize: const Size.fromHeight(50),
         child: AppBarCustom(
           title:
-              userData == null ? 'Profile' : '${userData.displayName} profile:',
+              userData == null ? AppLocalization.of(context).profilePlaceholder : userData.displayName,
         ),
       ),
       body: userData == null
@@ -61,7 +62,7 @@ class _ProfileState extends State<Profile> {
                                   () {
                                     _changePictureOnPressed(userData);
                                   },
-                                  'Change',
+                                  AppLocalization.of(context).changePlaceholder,
                                   Icon(
                                     Icons.save,
                                     color:
@@ -81,12 +82,12 @@ class _ProfileState extends State<Profile> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text('Trash collected'),
+                                Text(AppLocalization.of(context).trashCollectedPlaceholder),
                                 Text(
                                   userData.trashCollected.toString(),
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
-                                Text('Points created'),
+                                Text(AppLocalization.of(context).pointsCreatedPlaceholder),
                                 Text(
                                   userData.pointsCreated.toString(),
                                   style: TextStyle(fontWeight: FontWeight.bold),

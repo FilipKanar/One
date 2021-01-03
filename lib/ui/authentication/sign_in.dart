@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'package:one/service/authentication/authentication_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/shared/button/authentication_button.dart';
 import 'package:one/shared/decoration/text_form_field_custom.dart';
 import 'package:one/shared/validator/validator_custom.dart';
@@ -52,20 +53,25 @@ class _SignInState extends State<SignIn> {
                   style: TextStyle(color: Colors.red),
                 ),
                 TextFormFieldCustom().textFormFieldAuthentication(_setEmail,
-                    ValidatorCustom().validateEmail, 'Email'),
+                    ValidatorCustom(context).validateEmail, AppLocalization.of(context).emailPlaceholder),
                 TextFormFieldCustom().textFormFieldAuthentication(
-                    _setPassword, ValidatorCustom().validatePassword, 'Password',
+                    _setPassword, ValidatorCustom(context).validatePassword, AppLocalization.of(context).passwordPlaceholder,
                     obscureText: true),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    AuthenticationButton().button(_overviewOnPressed, 'Overview'),
+                    AuthenticationButton().button(_overviewOnPressed, AppLocalization.of(context).appOverview),
                     AuthenticationButton().buttonIcon(
-                        _signInOnPressed, 'Log In', Icon(Icons.login)),
+                        _signInOnPressed, AppLocalization.of(context).logInPlaceholder, Icon(Icons.login)),
                     AuthenticationButton()
-                        .button(widget.toggleView, 'Register'),
+                        .button(widget.toggleView, AppLocalization.of(context).registerPlaceholder),
                   ],
                 ),
+                FlatButton(onPressed: (){
+                  setState(() {
+                    AppLocalization.load(Locale('pl',''));
+                  });
+                }, child: Text('Zmiana')),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -82,12 +88,12 @@ class _SignInState extends State<SignIn> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0,4.5,0,4.5),
-                      child: Text('Accept '),
+                      child: Text(AppLocalization.of(context).acceptPlaceholder),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0,4.5,4.5,4.5),
                       child: InkWell(
-                        child: Text('Privacy Policy'),
+                        child: Text(AppLocalization.of(context).privacyPolicyPlaceholder),
                         onTap: () => launch('https://www.freeprivacypolicy.com/live/d726f50b-f379-4cd7-b0bc-36bb8d8bca00'),
                       ),
                     )
@@ -110,10 +116,10 @@ class _SignInState extends State<SignIn> {
           _email, _password);
       if (result == null) {
         setState(() {
-          _errorMessage = 'Could not sign in with those credentials.';
+          _errorMessage = AppLocalization.of(context).errorSignInCredentials;
         });
       } else {
-        Toast.show('Login Successful', context);
+        Toast.show(AppLocalization.of(context).loginSuccessfulToast, context);
       }
     }
   }
@@ -121,7 +127,7 @@ class _SignInState extends State<SignIn> {
   _signInWithGoogleOnPressed() async {
     if(_privacyPolicy==false){
       setState(() {
-        _errorMessage='Privacy Policy required for google authentication';
+        _errorMessage=AppLocalization.of(context).googlePrivacyPolicyMessage;
       });
     } else {
       await _authenticationService.signInWithGoogle();
@@ -132,10 +138,10 @@ class _SignInState extends State<SignIn> {
     dynamic result = await _authenticationService.signInWithEmailAndPassword(testUserData.testUserEmail, testUserData.testUserPassword);
     if (result == null) {
       setState(() {
-        _errorMessage = 'Could not sign in to test account.';
+        _errorMessage = AppLocalization.of(context).testUserLogInErrorMessage;
       });
     } else {
-      Toast.show('Login Successful', context);
+      Toast.show(AppLocalization.of(context).loginSuccessfulToast, context);
     }
   }
 

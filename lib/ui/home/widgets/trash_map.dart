@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:one/model/map/trash_point.dart';
 import 'package:one/model/user/user_data.dart';
 import 'package:one/service/file/image_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/map/map_service.dart';
 import 'package:one/service/permission/PermissionService.dart';
 import 'package:one/shared/dialog/warning_dialog.dart';
@@ -58,9 +59,8 @@ class _TrashMapState extends State<TrashMap> {
     super.initState();
     if (widget.testUser) {
       _userPosition = globals.defaultPosition;
-    }
-    else {
-      PermissionService().awaitLocationPermissions().then((value) => _locationPermissionStatus = value);
+    } else {
+      _locationPermissionCallback();
       _mapService.getUserLocation().then((position) {
         setState(() {
           _userPosition = LatLng(position.latitude, position.longitude);
@@ -70,6 +70,7 @@ class _TrashMapState extends State<TrashMap> {
     _mapService.addListener(_chosenMarkerListener);
   }
 
+
   @override
   Widget build(BuildContext context) {
     //Current user data
@@ -77,65 +78,75 @@ class _TrashMapState extends State<TrashMap> {
     //All points to display as markers and circles
     _trashPointList = Provider.of<List<TrashPoint>>(context);
     if (_trashPointList != null) _updateMarkersAndCircles();
-    return (!widget.testUser && _locationPermissionStatus==false) ? PermissionBlock() : Scaffold(
-      body: _userPosition == null
-          ? Loading()
-          : Padding(
-              padding: const EdgeInsets.all(0.0),
-              child: GoogleMap(
-                initialCameraPosition:
-                    CameraPosition(target: _userPosition, zoom: 18),
-                mapType: MapType.hybrid,
-                myLocationButtonEnabled: true,
-                myLocationEnabled: true,
-                buildingsEnabled: true,
-                onMapCreated: _onMapCreated,
-                circles: _circles,
-                markers: _markers,
-                mapToolbarEnabled: false,
-              ),
-            ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 9, 0),
-            child: FloatingActionButton(
-                heroTag: 'refreshMapBtn',
-                child: Icon(
-                  Icons.refresh,
-                  color: globals.addPointFloatingActionButtonTextColor,
+    return (!widget.testUser && _locationPermissionStatus == false)
+        ? PermissionBlock(_locationPermissionCallback)
+        : Scaffold(
+            body: _userPosition == null
+                ? Loading()
+                : Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: GoogleMap(
+                      initialCameraPosition:
+                          CameraPosition(target: _userPosition, zoom: 18),
+                      mapType: MapType.hybrid,
+                      myLocationButtonEnabled: true,
+                      myLocationEnabled: true,
+                      buildingsEnabled: true,
+                      onMapCreated: _onMapCreated,
+                      circles: _circles,
+                      markers: _markers,
+                      mapToolbarEnabled: false,
+                    ),
+                  ),
+            floatingActionButton: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 9, 0),
+                  child: FloatingActionButton(
+                      heroTag: 'refreshMapBtn',
+                      child: Icon(
+                        Icons.refresh,
+                        color: globals.addPointFloatingActionButtonTextColor,
+                      ),
+                      backgroundColor:
+                          globals.addPointFloatingActionButtonColor,
+                      onPressed: () {
+                        _markersFromTrashPointList(_trashPointList);
+                        _circlesFromTrashPointList(_trashPointList);
+                      }),
                 ),
-                backgroundColor: globals.addPointFloatingActionButtonColor,
-                onPressed: () {
-                  _markersFromTrashPointList(_trashPointList);
-                  _circlesFromTrashPointList(_trashPointList);
-                }),
-          ),
-          FloatingActionButton.extended(
-            heroTag: 'addPointBtn',
-            backgroundColor: globals.addPointFloatingActionButtonColor,
-            label: Text(
-              'Add point',
-              style: TextStyle(
-                  color: globals.addPointFloatingActionButtonTextColor),
+                FloatingActionButton.extended(
+                  heroTag: 'addPointBtn',
+                  backgroundColor: globals.addPointFloatingActionButtonColor,
+                  label: Text(
+                    AppLocalization.of(context).addPointButtonText,
+                    style: TextStyle(
+                        color: globals.addPointFloatingActionButtonTextColor),
+                  ),
+                  icon: Icon(
+                    Icons.add,
+                    color: globals.addPointFloatingActionButtonTextColor,
+                  ),
+                  onPressed: () {
+                    _addPointOnPressed(userData);
+                  },
+                ),
+              ],
             ),
-            icon: Icon(
-              Icons.add,
-              color: globals.addPointFloatingActionButtonTextColor,
-            ),
-            onPressed: () {
-              _addPointOnPressed(userData);
-            },
-          ),
-        ],
-      ),
-    );
+          );
   }
 
   _onMapCreated(GoogleMapController controller) async {
     setState(() {
       _controllerMap.complete(controller);
+    });
+  }
+
+  _locationPermissionCallback() async {
+    bool permissionCheck = await PermissionService().awaitLocationPermissions();
+    setState(() {
+      _locationPermissionStatus=permissionCheck;
     });
   }
 
@@ -166,7 +177,6 @@ class _TrashMapState extends State<TrashMap> {
     _circlesFromTrashPointList(_trashPointList);
   }
 
-
   void _addPointOnPressed(UserData userData) async {
     if (!widget.testUser) {
       _locationPermissionStatus =
@@ -177,8 +187,8 @@ class _TrashMapState extends State<TrashMap> {
             })
           : WarningDialog().showWarningDialog(
               context,
-              globals.locationPermissionWarningTitle,
-              globals.locationPermissionWarningMessage);
+          AppLocalization.of(context).locationPermissionWarningTitle,
+          AppLocalization.of(context).locationPermissionWarningMessage);
     } else
       _userPosition = globals.defaultPosition;
 
@@ -188,12 +198,12 @@ class _TrashMapState extends State<TrashMap> {
         ? image = await ImageService().getCameraImage()
         : WarningDialog().showWarningDialog(
             context,
-            globals.storagePermissionWarningTitle,
-            globals.storagePermissionWarningMessage);
+        AppLocalization.of(context).storagePermissionWarningTitle,
+            AppLocalization.of(context).storagePermissionWarningMessage);
 
     if (image == null) {
-      WarningDialog().showWarningDialog(context, 'Picture',
-          'Take picture of littered place. Select ONE trash you will throw out. Be happy.');
+      WarningDialog().showWarningDialog(context, AppLocalization.of(context).noPictureProvidedErrorTitle,
+          AppLocalization.of(context).noPictureProvidedErrorMessage);
     } else {
       Navigator.push(
         context,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one/model/user/user_data.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/shared/appbar/AppBarCustom.dart';
 import 'package:one/shared/loading.dart';
 import 'package:one/ui/home/widgets/ranking/raning_tile.dart';
@@ -51,7 +52,7 @@ class _RankingState extends State<Ranking> {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Text('Your position'),
+                        Text(AppLocalization.of(context).userPositionPlaceholder),
                         Text(userPosition.toString()),
                       ],
                     ),
@@ -60,7 +61,7 @@ class _RankingState extends State<Ranking> {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Text('Your Score'),
+                        Text(AppLocalization.of(context).userScorePlaceholder),
                         Text(userDataList
                             .singleWhere(
                                 (element) => element.userId == userData.userId)

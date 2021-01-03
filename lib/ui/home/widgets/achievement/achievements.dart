@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one/model/user/user_data.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/ui/home/widgets/achievement/single_achievement.dart';
 
 class Achievements extends StatefulWidget {
@@ -37,9 +38,9 @@ class _AchievementsState extends State<Achievements> {
         child: Column(
           children: [
             Achievement(
-              name: 'First Cleaning',
+              name: AppLocalization.of(context).firstCleaningAchievementTextTitle,
               description:
-              'Create new cleaning point or contribute to existing one.',
+              AppLocalization.of(context).firstCleaningAchievementTextMessage,
               isGranted: firstCleaning,
               color: Colors.lightGreen.shade50,
               icon: Icon(
@@ -47,8 +48,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Five Cleanings',
-              description: '5 times.',
+              name: AppLocalization.of(context).fiveCleaningAchievementTextTitle,
+              description: AppLocalization.of(context).fiveCleaningAchievementTextMessage,
               isGranted: fiveCleanings,
               color: Colors.lightGreen.shade100,
               icon: Icon(
@@ -56,8 +57,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Ten Cleanings',
-              description: '10 times.',
+              name: AppLocalization.of(context).tenCleaningAchievementTextTitle,
+              description: AppLocalization.of(context).tenCleaningAchievementTextMessage,
               isGranted: tenCleanings,
               color: Colors.lightGreen.shade200,
               icon: Icon(
@@ -65,8 +66,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Twenty Five Cleanings',
-              description: '25 times.',
+              name: AppLocalization.of(context).twentyFiveCleaningAchievementTextTitle,
+              description: AppLocalization.of(context).twentyFiveCleaningAchievementTextMessage,
               isGranted: twentyFiveCleanings,
               color: Colors.lightGreen.shade300,
               icon: Icon(
@@ -74,8 +75,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Fifty Cleanings',
-              description: '50 times.',
+              name: AppLocalization.of(context).fiftyCleaningAchievementTextTitle,
+              description: AppLocalization.of(context).fiftyPointAchievementTextMessage,
               isGranted: fiftyCleanings,
               color: Colors.lightGreen.shade400,
               icon: Icon(
@@ -83,8 +84,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Hundred Cleanings',
-              description: '100 times.',
+              name: AppLocalization.of(context).hundredCleaningAchievementTextTitle,
+              description: AppLocalization.of(context).hundredFiveCleaningAchievementTextMessage,
               isGranted: hundredCleanings,
               color: Colors.lightGreen.shade500,
               icon: Icon(
@@ -92,8 +93,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Create Cleaning Point',
-              description: 'Create new cleaning point.',
+              name: AppLocalization.of(context).firstPointAchievementTextTitle,
+              description: AppLocalization.of(context).firstPointAchievementTextMessage,
               isGranted: firstPoint,
               color: Colors.lightGreen.shade50,
               icon: Icon(
@@ -101,8 +102,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Create Cleaning Point',
-              description: 'Create 5 cleaning points.',
+              name: AppLocalization.of(context).fivePointAchievementTextTitle,
+              description: AppLocalization.of(context).fivePointAchievementTextMessage,
               isGranted: fivePoints,
               color: Colors.lightGreen.shade100,
               icon: Icon(
@@ -110,8 +111,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Create Cleaning Point',
-              description: 'Create 10 cleaning points.',
+              name: AppLocalization.of(context).tenPointAchievementTextTitle,
+              description: AppLocalization.of(context).tenPointAchievementTextMessage,
               isGranted: tenPoints,
               color: Colors.lightGreen.shade200,
               icon: Icon(
@@ -119,8 +120,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Create Cleaning Point',
-              description: 'Create 25 cleaning points.',
+              name: AppLocalization.of(context).twentyFivePointAchievementTextTitle,
+              description: AppLocalization.of(context).twentyFivePointAchievementTextMessage,
               isGranted: twentyFivePoints,
               color: Colors.lightGreen.shade300,
               icon: Icon(
@@ -128,8 +129,8 @@ class _AchievementsState extends State<Achievements> {
               ),
             ),
             Achievement(
-              name: 'Create Cleaning Point',
-              description: 'Create 50 cleaning points.',
+              name: AppLocalization.of(context).fiftyPointAchievementTextTitle,
+              description: AppLocalization.of(context).fiftyFiveCleaningAchievementTextMessage,
               isGranted: fiftyPoints,
               color: Colors.lightGreen.shade400,
               icon: Icon(

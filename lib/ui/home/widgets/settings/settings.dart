@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one/model/user/user_data.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/user_data/user_data_service.dart';
 import 'package:one/shared/button/authentication_button.dart';
 import 'package:one/shared/decoration/text_custom.dart';
@@ -30,13 +31,13 @@ class _SettingsState extends State<Settings> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextCustom(text: 'Change Username:', fontSize: 19,),
+                TextCustom(text: AppLocalization.of(context).changeUsernamePlaceholder, fontSize: 19,),
                 TextFormFieldCustom().textFormFieldAuthentication(_setUsername,
-                    ValidatorCustom().validateUsername, 'Username'),
+                    ValidatorCustom(context).validateUsername, AppLocalization.of(context).usernamePlaceholder),
                 AuthenticationButton()
                     .buttonIcon(() {
                   _changeUsernameOnPressed(userData.userDataId);
-                }, 'Change', Icon(Icons.save)),
+                }, AppLocalization.of(context).changePlaceholder, Icon(Icons.save)),
               ],
             ),
           ),

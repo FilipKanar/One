@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 //Model of single cleaning
 class Cleaning{
 //Timestamp

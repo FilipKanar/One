@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one/model/trash_point_comment.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/user_data/user_data_service.dart';
 import 'package:one/ui/home/widgets/comments/comment_tile.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,7 @@ class _CommentsListState extends State<CommentsList> {
     final commentsList = Provider.of<List<TrashPointComment>>(context);
     print(commentsList.toString());
     return commentsList == null || commentsList.isEmpty
-        ? Expanded(child: Center(child: Text('No comments')))
+        ? Expanded(child: Center(child: Text(AppLocalization.of(context).noCommentsToDisplayMessage)))
         : Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,

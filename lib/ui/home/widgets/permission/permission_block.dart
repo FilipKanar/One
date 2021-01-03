@@ -1,9 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:one/information/globals.dart' as globals;
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/shared/button/authentication_button.dart';
 
 class PermissionBlock extends StatelessWidget {
+  final Function locationCallback;
+
+  PermissionBlock(this.locationCallback);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,16 +19,20 @@ class PermissionBlock extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(9.0),
                 child: Text(
-                  globals.locationPermissionWarningTitle,
+                  AppLocalization.of(context).locationPermissionWarningTitle,
                   style: TextStyle(fontSize: 26, color: Colors.redAccent[100]),
                 ),
               ),
               Text(
-                globals.locationPermissionWarningMessage +' \n\nYou can change permissions in android settings.', style: TextStyle(), textAlign: TextAlign.center,
+                AppLocalization.of(context).locationPermissionWarningMessage, style: TextStyle(), textAlign: TextAlign.center,
               ),
               AuthenticationButton().button(
                 () => exit(0),
-                'Exit',
+                AppLocalization.of(context).cancelPlaceholder,
+              ),
+              AuthenticationButton().button(
+                    () => locationCallback(),
+                AppLocalization.of(context).allowPermissionPlaceholder,
               ),
             ],
           ),

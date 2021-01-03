@@ -6,6 +6,7 @@ import 'package:one/model/map/trash_point.dart';
 import 'package:one/model/user/user_data.dart';
 import 'package:one/service/comment/comment_service.dart';
 import 'package:one/service/file/image_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/map/cleaning/cleaning_service.dart';
 import 'package:one/service/permission/PermissionService.dart';
 import 'package:one/shared/dialog/warning_dialog.dart';
@@ -54,7 +55,7 @@ class _PointMenuState extends State<TrashPointMenu> {
             ),
             onPressed: () {
               if(userData.userId == test_user_data.testUserId){
-                WarningDialog().showWarningDialog(context, globals.testUserWarningTitle, globals.testUserWarningMessage);
+                WarningDialog().showWarningDialog(context, AppLocalization.of(context).testUserWarningTitle, AppLocalization.of(context).testUserWarningMessage);
               } else {
                 addCleaning(userData);
               }
@@ -93,8 +94,8 @@ class _PointMenuState extends State<TrashPointMenu> {
       if (await PermissionService().awaitCameraPermission()) {
         File image = await ImageService().getCameraImage();
         if (image == null) {
-          WarningDialog().showWarningDialog(context, 'Picture',
-              'Take picture of littered place. Select ONE trash you will throw out. Be happy.');
+          WarningDialog().showWarningDialog(context, AppLocalization.of(context).noPictureProvidedErrorTitle,
+              AppLocalization.of(context).noPictureProvidedErrorMessage);
         } else {
           callBackEditPicture(newPicture) {
             CleaningService().addCleaning(

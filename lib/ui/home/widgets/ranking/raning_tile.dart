@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one/model/user/user_data.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 
 class RankingTile extends StatelessWidget {
   final Color color;
@@ -45,7 +46,7 @@ class RankingTile extends StatelessWidget {
                     padding: const EdgeInsets.all(2.0),
                     child: Column(
                       children: [
-                        Text('SCORE'),
+                        Text(AppLocalization.of(context).scorePlaceholder),
                         Text(userData.trashCollected.toString()),
                       ],
                     ),

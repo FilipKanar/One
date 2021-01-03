@@ -32,6 +32,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+#Multi Language
+  flutter_localizations:
+    sdk: flutter
+  intl_translation: ^0.17.10+1
 #DateTime
   jiffy: ^3.0.1
 #Firebase core
@@ -53,7 +57,7 @@ dev_dependencies:
 #Google Maps
   google_maps_flutter: ^1.0.6
 #User Position
-  geolocator: ^6.1.12
+  geolocator: ^6.1.13
 #User Permissions
   permission_handler: ^5.0.1+1
 #Picture
@@ -66,6 +70,8 @@ dev_dependencies:
   screenshot: ^0.1.1
 #Url launch - privacy policy
   url_launcher: ^5.7.10
+dependency_overrides:
+  intl: ^0.17.0-nullsafety.2
 
 
 # For information on the generic Dart part of this file, see the
@@ -73,7 +79,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -84,6 +90,7 @@ flutter:
     - assets/logo/
     - assets/profile/
     - assets/marker/
+    - lib/l10n/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

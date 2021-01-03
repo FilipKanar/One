@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-//Validation message:
-  //Authentication
-  final String emailValidationText = 'Please provide a valid email';
-  final String passwordValidationText = 'The password must be at least 6 characters long and contain at least 1 numeric and capital letter.';
-  final String passwordConformationValidationText = 'Passwords do not match.';
-  final String usernameValidationText = 'The username must be at least 6 characters long.';
-
-//Choose Username Dialog
-  final String chooseUsernameDialogTitle = 'Username';
-  final String chooseUsernameDialogMessage = 'Your username will be visible to other users.';
 
 //Colors
   final Color green = Colors.lightGreen;
@@ -36,12 +26,3 @@ final double appBarFontSize = 25.0;
 
 //Warnings
 final Color lightWarningColor = Colors.redAccent;
-final String locationPermissionWarningTitle = 'Permission';
-final String locationPermissionWarningMessage =  'Location permission required.';
-
-final String storagePermissionWarningTitle = 'Storage';
-final String storagePermissionWarningMessage =  'Storage permission required.';
-
-final String testUserWarningTitle = 'Test User';
-final String testUserWarningMessage = 'You are signed in as a test user. Create an account to clean the world.';
-

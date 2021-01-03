@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:one/model/touch_point.dart';
 import 'package:one/service/file/my_painter.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:screenshot/screenshot.dart';
 
 class EditPicture extends StatefulWidget {
@@ -81,13 +82,13 @@ class _EditPictureState extends State<EditPicture> {
         backgroundColor: Colors.white,
         heroTag: "paint_save",
         child: Icon(Icons.save,color: Colors.lightGreen,),
-        tooltip: 'Save',
+        tooltip: AppLocalization.of(context).saveAndContinueTip,
         onPressed: () {
           screenshotController.capture().then((File value) {
             widget.callbackEditPicture(value);
             if(widget.pop) Navigator.pop(context);
           }).catchError((onError) {
-            print('onError');
+            print(onError);
           });
         },
       ),

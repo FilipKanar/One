@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one/service/authentication/authentication_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/shared/button/authentication_button.dart';
 import 'package:one/shared/decoration/text_form_field_custom.dart';
 import 'package:one/shared/validator/validator_custom.dart';
@@ -56,14 +57,14 @@ class _SignInState extends State<SignUp> {
                 SignUpMessages(),
                 /*Sign Up Text Form Fields */
                 TextFormFieldCustom().textFormFieldAuthentication(setDisplayName,
-                    ValidatorCustom().validateUsername, 'Username'),
+                    ValidatorCustom(context).validateUsername, AppLocalization.of(context).usernamePlaceholder),
                 TextFormFieldCustom().textFormFieldAuthentication(setEmail,
-                    ValidatorCustom().validateEmail, 'Email'),
+                    ValidatorCustom(context).validateEmail, AppLocalization.of(context).emailPlaceholder),
                 TextFormFieldCustom().textFormFieldAuthentication(
-                    setPassword, ValidatorCustom().validatePassword, 'Password',
+                    setPassword, ValidatorCustom(context).validatePassword, AppLocalization.of(context).passwordPlaceholder,
                     obscureText: true),
                 TextFormFieldCustom().textFormFieldAuthentication(
-                    null, ValidatorCustom().validatePasswordConfirm, 'Confirm password',
+                    null, ValidatorCustom(context).validatePasswordConfirm, AppLocalization.of(context).confirmPasswordPlaceholder,
                     obscureText: true, validatorCompareString: _password),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -81,12 +82,12 @@ class _SignInState extends State<SignUp> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0,4.5,0,4.5),
-                      child: Text('Accept '),
+                      child: Text(AppLocalization.of(context).acceptPlaceholder),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0,4.5,4.5,4.5),
                       child: InkWell(
-                        child: Text('Privacy Policy'),
+                        child: Text(AppLocalization.of(context).privacyPolicyPlaceholder),
                         onTap: () => launch('https://www.freeprivacypolicy.com/live/d726f50b-f379-4cd7-b0bc-36bb8d8bca00'),
                       ),
                     )
@@ -97,9 +98,9 @@ class _SignInState extends State<SignUp> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     AuthenticationButton().buttonIcon(
-                        signUpOnPressed, 'Register', Icon(Icons.login)),
+                        signUpOnPressed, AppLocalization.of(context).registerPlaceholder, Icon(Icons.login)),
                     AuthenticationButton()
-                        .button(widget.toggleView, 'LogIn'),
+                        .button(widget.toggleView, AppLocalization.of(context).logInPlaceholder),
                   ],
                 ),
               ],
@@ -116,10 +117,10 @@ class _SignInState extends State<SignUp> {
           _email, _password,_displayName);
       if (result == null) {
         setState(() {
-          _errorMessage = 'Could not register with those credentials.';
+          _errorMessage = AppLocalization.of(context).errorSignUpCredentials;
         });
       } else {
-        Toast.show('Registration Successful', context);
+        Toast.show(AppLocalization.of(context).registrationSuccessfulToast, context);
       }
     }
   }

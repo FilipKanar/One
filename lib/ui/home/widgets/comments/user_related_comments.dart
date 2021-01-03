@@ -3,6 +3,7 @@ import 'package:one/model/map/trash_point.dart';
 import 'package:one/model/trash_point_comment.dart';
 import 'package:one/model/user/user_data.dart';
 import 'package:one/service/comment/comment_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/shared/loading.dart';
 import 'package:one/ui/home/screens/comments.dart';
 import 'package:one/ui/home/widgets/comments/comment_tile.dart';
@@ -26,7 +27,7 @@ class _UserRelatedCommentsState extends State<UserRelatedComments> {
         ? Loading()
         : userRelatedCommentsList.isEmpty
             ? Center(
-                child: Text('No comments to display.'),
+                child: Text(AppLocalization.of(context).noCommentsToDisplayMessage),
               )
             : ListView.builder(
                 scrollDirection: Axis.vertical,

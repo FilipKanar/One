@@ -3,6 +3,7 @@ import 'package:one/model/map/trash_point.dart';
 import 'package:one/model/trash_point_comment.dart';
 import 'package:one/model/user/user_data.dart';
 import 'package:one/service/comment/comment_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/shared/appbar/AppBarCustom.dart';
 import 'package:one/shared/dialog/warning_dialog.dart';
 import 'package:one/shared/loading.dart';
@@ -35,7 +36,7 @@ class _CommentsState extends State<Comments> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
-        child: AppBarCustom(title: 'Comments',),
+        child: AppBarCustom(title: AppLocalization.of(context).commentsScreenTitle,),
       ),
       body: Column(
         children: <Widget>[
@@ -54,7 +55,7 @@ class _CommentsState extends State<Comments> {
                     Expanded(
                       child: TextFormField(
                         decoration: InputDecoration(
-                          hintText: 'Comment...',
+                          hintText: AppLocalization.of(context).newCommentHintText,
                           fillColor: Colors.white,
                           hoverColor: Colors.white,
                           filled: true,
@@ -73,7 +74,7 @@ class _CommentsState extends State<Comments> {
                         ),
                         validator: (val) => val.length > 10
                             ? null
-                            : 'Comment must be at least 10 characters long.',
+                            : AppLocalization.of(context).newCommentLengthValidatorText,
                         onChanged: (val) {
                           setState(() => comment = val);
                         },
@@ -84,7 +85,7 @@ class _CommentsState extends State<Comments> {
                       color: Colors.lightGreen,
                       onPressed: () async {
                         if(widget.userData.userId == test_user_data.testUserId){
-                          WarningDialog().showWarningDialog(context, globals.testUserWarningTitle, globals.testUserWarningMessage);
+                          WarningDialog().showWarningDialog(context, AppLocalization.of(context).testUserWarningTitle, AppLocalization.of(context).testUserWarningMessage);
                         }else{
                           if (_formKey.currentState.validate()) {
                             setState(() {
@@ -101,7 +102,7 @@ class _CommentsState extends State<Comments> {
                             );
                             if (result == null) {
                               setState(() {
-                                error = 'Failed adding comment';
+                                error = AppLocalization.of(context).newCommentAddErrorMessage;
                                 loading = false;
                               });
                             }

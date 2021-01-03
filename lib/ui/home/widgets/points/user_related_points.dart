@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:one/model/map/trash_point.dart';
 import 'package:one/model/user/user_data.dart';
 import 'package:one/service/comment/comment_service.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/map/cleaning/cleaning_service.dart';
 import 'package:one/shared/dialog/point_delete_dialog.dart';
 import 'package:one/shared/loading.dart';
@@ -29,7 +30,7 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
         ? Loading()
         : userRelatedPointsList.isEmpty
             ? Center(
-                child: Text('No points to display.'),
+                child: Text(AppLocalization.of(context).noPointsToDisplayMessage),
               )
             : ListView.builder(
                 scrollDirection: Axis.vertical,
