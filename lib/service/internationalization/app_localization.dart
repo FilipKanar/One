@@ -550,4 +550,11 @@ class AppLocalization {
       desc: 'Allow Permission Placeholder',
     );
   }
+  String get pointNamePlaceholder {
+    return Intl.message(
+      'Point name',
+      name: 'pointNamePlaceholder',
+      desc: 'Point name Placeholder',
+    );
+  }
 }

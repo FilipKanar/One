@@ -69,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordLengthValidationText" : MessageLookupByLibrary.simpleMessage("Hasło musi składać się przynajmniej z 6 zanków oraz zawierać jedną cyfrę i wielką literę."),
     "passwordPlaceholder" : MessageLookupByLibrary.simpleMessage("Hasło"),
     "pointNameHintText" : MessageLookupByLibrary.simpleMessage("Nazwij punkt"),
+    "pointNamePlaceholder" : MessageLookupByLibrary.simpleMessage("Nazwa punktu:"),
     "pointsCreatedPlaceholder" : MessageLookupByLibrary.simpleMessage("Stworzone punkty"),
     "privacyPolicyPlaceholder" : MessageLookupByLibrary.simpleMessage("Polityka Prywatności"),
     "profilePlaceholder" : MessageLookupByLibrary.simpleMessage("Profil"),

@@ -69,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordLengthValidationText" : MessageLookupByLibrary.simpleMessage("The password must be at least 6 characters long and contain at least 1 numeric and capital letter"),
     "passwordPlaceholder" : MessageLookupByLibrary.simpleMessage("Password"),
     "pointNameHintText" : MessageLookupByLibrary.simpleMessage("Name this point"),
+    "pointNamePlaceholder" : MessageLookupByLibrary.simpleMessage("Point name:"),
     "pointsCreatedPlaceholder" : MessageLookupByLibrary.simpleMessage("Points Created"),
     "privacyPolicyPlaceholder" : MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "profilePlaceholder" : MessageLookupByLibrary.simpleMessage("Profile"),

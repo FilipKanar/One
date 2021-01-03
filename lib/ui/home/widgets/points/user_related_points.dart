@@ -84,15 +84,19 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 9.0),
+                                        child: Text(AppLocalization.of(context).pointNamePlaceholder,style: TextStyle(fontSize: 13, color: globals.greenAsGreenGreenCanBe),),
+                                      ),
                                       userRelatedPointsList[index].pointId ==
                                               null
                                           ? Container()
                                           : Padding(
                                               padding:
-                                                  EdgeInsets.only(left: 8.0),
+                                                  EdgeInsets.only(left: 9.0),
                                               child: Text(
                                                   userRelatedPointsList[index]
-                                                      .description),
+                                                      .description,style: TextStyle(fontSize: 16),),
                                             )
                                     ],
                                   ),
