@@ -6,7 +6,7 @@ import 'package:one/model/touch_point.dart';
 class MyPainter extends CustomPainter {
 
   List<TouchPoint> touchPointList;
-  List<Offset> offsetPointList = List();
+  List<Offset> offsetPointList =[];
 
   MyPainter({this.touchPointList});
 

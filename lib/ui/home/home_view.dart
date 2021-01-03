@@ -4,7 +4,7 @@ import 'package:one/service/map/cleaning/cleaning_service.dart';
 import 'package:one/service/map/map_service.dart';
 import 'package:one/service/map/trash_point/trash_point_service.dart';
 import 'package:one/shared/appbar/AppBarCustom.dart';
-import 'file:///C:/Users/FilipPC/AndroidStudioProjects/one/lib/ui/home/widgets/points/tash_point_menu.dart';
+import 'package:one/ui/home/widgets/points/tash_point_menu.dart';
 import 'package:one/ui/home/widgets/trash_map.dart';
 import 'package:provider/provider.dart';
 import 'package:one/information/test_user_data.dart' as testUserData;

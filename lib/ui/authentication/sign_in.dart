@@ -67,11 +67,6 @@ class _SignInState extends State<SignIn> {
                         .button(widget.toggleView, AppLocalization.of(context).registerPlaceholder),
                   ],
                 ),
-                FlatButton(onPressed: (){
-                  setState(() {
-                    AppLocalization.load(Locale('pl',''));
-                  });
-                }, child: Text('Zmiana')),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

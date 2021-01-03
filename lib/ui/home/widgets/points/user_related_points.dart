@@ -30,7 +30,8 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
         ? Loading()
         : userRelatedPointsList.isEmpty
             ? Center(
-                child: Text(AppLocalization.of(context).noPointsToDisplayMessage),
+                child:
+                    Text(AppLocalization.of(context).noPointsToDisplayMessage),
               )
             : ListView.builder(
                 scrollDirection: Axis.vertical,
@@ -43,7 +44,7 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                     awaitImageLoad(userRelatedPointsList[index].pointId,
                         user.userId, index);
                   return Container(
-                    height: 132,
+                    height: 108,
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
                       child: Row(
@@ -90,25 +91,33 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       IconButton(
-                                        icon: Icon(Icons.comment, color: globals.green,),
+                                        icon: Icon(
+                                          Icons.comment,
+                                          color: globals.green,
+                                        ),
                                         onPressed: () {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => MultiProvider(
+                                              builder: (context) =>
+                                                  MultiProvider(
                                                 providers: [
                                                   Provider.value(
                                                       value: widget.userData),
                                                   StreamProvider.value(
                                                     value: CommentService()
-                                                        .getCommentsAtPoint(userRelatedPointsList[index]
-                                                        .pointId),
+                                                        .getCommentsAtPoint(
+                                                            userRelatedPointsList[
+                                                                    index]
+                                                                .pointId),
                                                   ),
                                                 ],
                                                 child: Comments(
                                                   trashPoint: TrashPoint(
-                                                      pointId:userRelatedPointsList[index]
-                                                          .pointId),
+                                                      pointId:
+                                                          userRelatedPointsList[
+                                                                  index]
+                                                              .pointId),
                                                   userData: widget.userData,
                                                 ),
                                               ),
@@ -117,13 +126,16 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                                         },
                                       ),
                                       IconButton(
-                                        icon: Icon(Icons.delete, color: globals.lightWarningColor,),
+                                        icon: Icon(
+                                          Icons.delete,
+                                          color: globals.lightWarningColor,
+                                        ),
                                         onPressed: () {
                                           PointDeleteDialog()
                                               .showAddPointDialog(
-                                              context,
-                                              userRelatedPointsList[index]
-                                                  .pointId);
+                                                  context,
+                                                  userRelatedPointsList[index]
+                                                      .pointId);
                                         },
                                       ),
                                     ],

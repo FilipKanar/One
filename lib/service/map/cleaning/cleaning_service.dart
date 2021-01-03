@@ -30,7 +30,7 @@ class CleaningService {
       String downloadUrl = await imageService.uploadFile(cleaning, image);
       updateDownloadUrl(doc.id, downloadUrl);
       pointService.addTrashPanToPoint(cleaning.pointId);
-      UserDataService().increaseUserAchievementField(userDataId, 'collectingTrash');
+      UserDataService().increaseUserAchievementField(userDataId, 'trashCollected');
     }).catchError((error) {
       print(error);
     });

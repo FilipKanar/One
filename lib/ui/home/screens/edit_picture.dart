@@ -19,7 +19,7 @@ class EditPicture extends StatefulWidget {
 }
 
 class _EditPictureState extends State<EditPicture> {
-  List<TouchPoint> touchPointList = List();
+  List<TouchPoint> touchPointList = [];
 
   double opacity = 1.0;
   StrokeCap strokeType = StrokeCap.round;
