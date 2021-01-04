@@ -51,6 +51,9 @@ class CleaningService {
       }
     });
   }
+  Future deleteCleaning(String cleaningId) async {
+    return await cleaningsDataCollection.doc(cleaningId).delete();
+  }
 
   Future updateDownloadUrl(String cleaningId, String downloadPictureUrl) async{
     return await cleaningsDataCollection.doc(cleaningId).update({
@@ -65,6 +68,7 @@ class CleaningService {
         pointId: doc.data()['pointId'],
         downloadPictureUrl: doc.data()['downloadPictureUrl'],
         cleaningId: doc.data()['cleaningId'],
+        creationDateTime: DateTime.fromMillisecondsSinceEpoch(doc.data()['creationDateTime']),
       );
     }).toList();
   }

@@ -4,10 +4,12 @@ import 'package:one/model/trash_point_comment.dart';
 import 'package:one/model/user/user_data.dart';
 import 'package:one/service/comment/comment_service.dart';
 import 'package:one/service/internationalization/app_localization.dart';
+import 'package:one/shared/dialog/comment_delete_dialog.dart';
 import 'package:one/shared/loading.dart';
 import 'package:one/ui/home/screens/comments.dart';
 import 'package:one/ui/home/widgets/comments/comment_tile.dart';
 import 'package:provider/provider.dart';
+import 'package:one/information/globals.dart' as globals;
 
 class UserRelatedComments extends StatefulWidget {
   final UserData userData;
@@ -23,6 +25,9 @@ class _UserRelatedCommentsState extends State<UserRelatedComments> {
   Widget build(BuildContext context) {
     final userRelatedCommentsList =
         Provider.of<List<TrashPointComment>>(context);
+    if(userRelatedCommentsList!=null){
+      userRelatedCommentsList.sort((a,b) => a.creationDateTime.compareTo(b.creationDateTime),);
+    }
     return userRelatedCommentsList == null
         ? Loading()
         : userRelatedCommentsList.isEmpty
@@ -60,40 +65,57 @@ class _UserRelatedCommentsState extends State<UserRelatedComments> {
                                 ),
                               ),
                               Expanded(
-                                flex: 2,
-                                child: IconButton(
-                                  icon: Icon(
-                                    Icons.arrow_forward_outlined,
-                                    color: Colors.lightGreen,
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => MultiProvider(
-                                          providers: [
-                                            Provider.value(
-                                                value: widget.userData),
-                                            StreamProvider.value(
-                                              value: CommentService()
-                                                  .getCommentsAtPoint(
-                                                      userRelatedCommentsList[
-                                                              index]
-                                                          .pointId),
-                                            ),
-                                          ],
-                                          child: Comments(
-                                            trashPoint: TrashPoint(
-                                                pointId:
-                                                    userRelatedCommentsList[
-                                                            index]
-                                                        .pointId),
-                                            userData: widget.userData,
-                                          ),
-                                        ),
+                                flex: 1,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.arrow_forward_outlined,
+                                        color: Colors.lightGreen,
                                       ),
-                                    );
-                                  },
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MultiProvider(
+                                              providers: [
+                                                Provider.value(
+                                                    value: widget.userData),
+                                                StreamProvider.value(
+                                                  value: CommentService()
+                                                      .getCommentsAtPoint(
+                                                          userRelatedCommentsList[
+                                                                  index]
+                                                              .pointId),
+                                                ),
+                                              ],
+                                              child: Comments(
+                                                trashPoint: TrashPoint(
+                                                    pointId:
+                                                        userRelatedCommentsList[
+                                                                index]
+                                                            .pointId),
+                                                userData: widget.userData,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.delete,
+                                        color: globals.lightWarningColor,
+                                      ),
+                                      onPressed: () {
+                                        CommentDeleteDialog()
+                                            .showAddPointDialog(
+                                            context,
+                                            userRelatedCommentsList[index].pointCommentId);
+                                      },
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],

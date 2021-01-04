@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:one/service/comment/comment_service.dart';
 import 'package:one/service/internationalization/app_localization.dart';
-import 'package:one/service/map/trash_point/trash_point_service.dart';
 
-class PointDeleteDialog {
+class CommentDeleteDialog {
 
-  void showAddPointDialog(BuildContext context, String pointId) {
+  void showAddPointDialog(BuildContext context, String commentId) {
     showDialog(
         barrierDismissible: true,
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: new Text(AppLocalization.of(context).pointDeleteDialogTitle,style: TextStyle(color: Colors.red),),
-            content: Text(AppLocalization.of(context).pointDeleteDialogMessage),
+            title: new Text(AppLocalization.of(context).commentDeleteDialogTitle,style: TextStyle(color: Colors.red),),
+            content: Text(AppLocalization.of(context).commentDeleteDialogMessage),
             actions: <Widget>[
               new FlatButton(
                 onPressed: () async {
-                  TrashPointService().deletePoint(pointId);
+                  CommentService().deleteComment(commentId);
                   Navigator.pop(context);
                 },
                 child: Text(AppLocalization.of(context).yesPlaceholder),),

@@ -41,6 +41,10 @@ class _PointMenuState extends State<TrashPointMenu> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: globals.appBarColor,
+        title: Text(widget.trashPoint.description,
+            style: TextStyle(
+              color: globals.appBarTitleColor,
+            ),),
         leading: FlatButton(
           onPressed: () {
             widget.hideTrashPointMenuCallback();

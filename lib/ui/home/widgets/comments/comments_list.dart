@@ -21,8 +21,16 @@ class _CommentsListState extends State<CommentsList> {
   Widget build(BuildContext context) {
     final commentsList = Provider.of<List<TrashPointComment>>(context);
     print(commentsList.toString());
+    if(commentsList!=null){
+      commentsList.sort((a,b) => a.creationDateTime.compareTo(b.creationDateTime),);
+    }
     return commentsList == null || commentsList.isEmpty
-        ? Expanded(child: Center(child: Text(AppLocalization.of(context).noCommentsToDisplayMessage)))
+        ? Expanded(
+            child: Center(
+              child:
+                  Text(AppLocalization.of(context).noCommentsToDisplayMessage),
+            ),
+          )
         : Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,
@@ -32,25 +40,26 @@ class _CommentsListState extends State<CommentsList> {
                 return FutureBuilder(
                   future: _getUserDisplayName(commentsList[index].userId),
                   builder: (context, snapshot) {
-                      return index.isEven
-                          ? CommentTile(
-                        postingUserId: commentsList[index].userId,
-                        user: snapshot.data.toString(),
-                        content: commentsList[index].pointCommentContent,
-                        color: globals.commentTileColorWeak,
-                      )
-                          : CommentTile(
-                        postingUserId: commentsList[index].userId,
-                        user: snapshot.data.toString(),
-                        content: commentsList[index].pointCommentContent,
-                        color: globals.commentTileColorStrong,
-                      );
+                    return index.isEven
+                        ? CommentTile(
+                            postingUserId: commentsList[index].userId,
+                            user: snapshot.data.toString(),
+                            content: commentsList[index].pointCommentContent,
+                            color: globals.commentTileColorWeak,
+                          )
+                        : CommentTile(
+                            postingUserId: commentsList[index].userId,
+                            user: snapshot.data.toString(),
+                            content: commentsList[index].pointCommentContent,
+                            color: globals.commentTileColorStrong,
+                          );
                   },
                 );
               },
             ),
           );
   }
+
   _getUserDisplayName(String userId) async {
     String userDisplayName;
     userDisplayName = await UserDataService().getUserDisplayNameById(userId);

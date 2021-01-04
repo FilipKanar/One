@@ -557,4 +557,60 @@ class AppLocalization {
       desc: 'Point name Placeholder',
     );
   }
+  String get commentDeleteDialogTitle {
+    return Intl.message(
+      'Delete comment',
+      name: 'commentDeleteDialogTitle',
+      desc: 'Delete comment dialog title',
+    );
+  }
+  String get commentDeleteDialogMessage {
+    return Intl.message(
+      'Are you sure that you want to permanently delete selected comment?',
+      name: 'commentDeleteDialogMessage',
+      desc: 'Delete comment dialog message',
+    );
+  }
+  String get pointDeleteDialogTitle {
+    return Intl.message(
+      'Delete point?',
+      name: 'pointDeleteDialogTitle',
+      desc: 'Delete point dialog message',
+    );
+  }
+  String get pointDeleteDialogMessage {
+    return Intl.message(
+      'Are you sure that you want to permanently delete selected point?',
+      name: 'pointDeleteDialogMessage',
+      desc: 'Delete comment dialog title',
+    );
+  }
+  String get yesPlaceholder {
+    return Intl.message(
+      'Yes',
+      name: 'yesPlaceholder',
+      desc: 'Yes',
+    );
+  }
+  String get cleaningDeleteDialogTitle {
+    return Intl.message(
+      'Delete Cleaning',
+      name: 'cleaningDeleteDialogTitle',
+      desc: 'Delete cleaning dialog title',
+    );
+  }
+  String get cleaningDeleteDialogMessage {
+    return Intl.message(
+      'Are you sure that you want to permanently delete selected cleaning?',
+      name: 'cleaningDeleteDialogMessage',
+      desc: 'Delete cleaning dialog message',
+    );
+  }
+  String get lastTrashAtPointPlaceholder {
+    return Intl.message(
+      'Its last trash at this point',
+      name: 'lastTrashAtPointPlaceholder',
+      desc: 'checkbox message, last cleaning at point',
+    );
+  }
 }

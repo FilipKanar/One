@@ -23,7 +23,7 @@ class AddPoint extends StatefulWidget {
   final File imageFile;
   final Function updateCallback;
 
-  AddPoint({this.imageFile, this.latLng,this.updateCallback});
+  AddPoint({this.imageFile, this.latLng, this.updateCallback});
 
   @override
   _AddPointState createState() => _AddPointState();
@@ -33,6 +33,7 @@ class _AddPointState extends State<AddPoint> {
   bool wasImageEdited = false;
   final _formKey = GlobalKey<FormState>();
   File _imageFile;
+
 
   @override
   void initState() {
@@ -85,7 +86,8 @@ class _AddPointState extends State<AddPoint> {
                                   size: 60,
                                 ),
                                 onPressed: () async {
-                                  File temp = await ImageService().getCameraImage();
+                                  File temp =
+                                      await ImageService().getCameraImage();
                                   if (temp != null) {
                                     setState(() {
                                       _imageFile = temp;
@@ -102,11 +104,14 @@ class _AddPointState extends State<AddPoint> {
                         padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
                         child: TextFormField(
                           autofocus: true,
-                          validator: (val) =>
-                              val.length < 5 ? AppLocalization.of(context).descriptionLengthValidator : null,
+                          validator: (val) => val.length < 5
+                              ? AppLocalization.of(context)
+                                  .descriptionLengthValidator
+                              : null,
                           onChanged: (val) => trashPoint.description = val,
                           decoration: InputDecoration(
-                              hintText: AppLocalization.of(context).pointNameHintText,
+                              hintText:
+                                  AppLocalization.of(context).pointNameHintText,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Colors.lightGreen),
@@ -121,23 +126,34 @@ class _AddPointState extends State<AddPoint> {
                         child: FlatButton(
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
-                              if(userData.userId == testUserData.testUserId){
-                                WarningDialog().showWarningDialog(context, AppLocalization.of(context).testUserWarningTitle, AppLocalization.of(context).testUserWarningMessage);
-                                WarningDialog().showWarningDialog(context, AppLocalization.of(context).testUserWarningTitle, AppLocalization.of(context).testUserWarningMessage);
-                              }else{
+                              if (userData.userId == testUserData.testUserId) {
+                                WarningDialog().showWarningDialog(
+                                    context,
+                                    AppLocalization.of(context)
+                                        .testUserWarningTitle,
+                                    AppLocalization.of(context)
+                                        .testUserWarningMessage);
+                                WarningDialog().showWarningDialog(
+                                    context,
+                                    AppLocalization.of(context)
+                                        .testUserWarningTitle,
+                                    AppLocalization.of(context)
+                                        .testUserWarningMessage);
+                              } else {
                                 trashPoint.cleaned = false;
                                 trashPoint.creatorId = userData.userId;
-                                await trashPointService.addTrashPoint(trashPoint);
+                                await trashPointService
+                                    .addTrashPoint(trashPoint);
                                 cleaningService.addCleaning(
                                     Cleaning(
-                                        pointId: trashPointService.returnPointId,
+                                        pointId:
+                                            trashPointService.returnPointId,
                                         userId: userData.userId,
                                         downloadPictureUrl: null),
                                     _imageFile,
                                     userData.userDataId);
                                 UserDataService().increaseUserAchievementField(
                                     userData.userDataId, 'pointsCreated');
-
                               }
                               Navigator.pop(context);
                             }

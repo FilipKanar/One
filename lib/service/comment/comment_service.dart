@@ -35,6 +35,11 @@ class CommentService {
     });
   }
 
+
+  Future deleteComment(String commentId) async {
+    return await commentPointsDataCollection.doc(commentId).delete();
+  }
+
   List<TrashPointComment> _pointCommentDataFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return TrashPointComment(

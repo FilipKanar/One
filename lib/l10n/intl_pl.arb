@@ -455,5 +455,53 @@
     "description": "Point name Placeholder",
     "type": "text",
     "placeholders": {}
+  },
+  "commentDeleteDialogTitle": "Delete comment",
+  "@commentDeleteDialogTitle": {
+    "description": "Delete comment dialog title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "commentDeleteDialogMessage": "Are you sure that you want to permanently delete selected comment?",
+  "@commentDeleteDialogMessage": {
+    "description": "Delete comment dialog message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pointDeleteDialogTitle": "Delete point",
+  "@pointDeleteDialogTitle": {
+    "description": "Delete point dialog message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pointDeleteDialogMessage": "Are you sure that you want to permanently delete selected point?",
+  "@pointDeleteDialogMessage": {
+    "description": "Delete comment dialog title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "yesPlaceholder": "Tak",
+  "@yesPlaceholder": {
+    "description": "Yes placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cleaningDeleteDialogTitle": "Delete Cleaning",
+  "@cleaningDeleteDialogTitle": {
+    "description": "Delete cleaning dialog title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cleaningDeleteDialogMessage": "Are you sure that you want to permanently delete selected cleaning?",
+  "@cleaningDeleteDialogMessage": {
+    "description": "Delete cleaning dialog message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastTrashAtPointPlaceholder": "It's last trash at this point",
+  "@lastTrashAtPointPlaceholder": {
+    "description": "checkbox message, last cleaning at point",
+    "type": "text",
+    "placeholders": {}
   }
   }

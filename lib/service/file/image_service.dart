@@ -25,4 +25,10 @@ class ImageService{
     return _downloadURL;
   }
 
+  Future deleteFile(Cleaning cleaning) async {
+    Reference storageReference =
+    FirebaseStorage.instance.ref().child('pictures/cleanings/${cleaning.cleaningId}.png');
+    await storageReference.delete();
+  }
+
 }
