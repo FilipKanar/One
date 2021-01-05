@@ -148,7 +148,7 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                                         ),
                                         onPressed: () {
                                           PointDeleteDialog()
-                                              .showAddPointDialog(
+                                              .showPointDeleteDialog(
                                                   context,
                                                   userRelatedPointsList[index]
                                                       .pointId);

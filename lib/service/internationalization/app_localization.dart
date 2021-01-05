@@ -613,4 +613,39 @@ class AppLocalization {
       desc: 'checkbox message, last cleaning at point',
     );
   }
+  String get addCleaningDialogTitle {
+    return Intl.message(
+      'Add cleaning',
+      name: 'addCleaningDialogTitle',
+      desc: 'Add cleaning dialog title',
+    );
+  }
+  String get addCleaningDialogMessage {
+    return Intl.message(
+      'Add cleaning',
+      name: 'addCleaningDialogMessage',
+      desc: 'Add cleaning dialog message',
+    );
+  }
+  String get lastCleaningHintMessage {
+    return Intl.message(
+      'last Cleaning Hint message',
+      name: 'lastCleaningHintMessage',
+      desc: 'last Cleaning Hint message',
+    );
+  }
+  String get lastCleaningPublicButtonText {
+    return Intl.message(
+      'Public both',
+      name: 'lastCleaningPublicButtonText',
+      desc: 'last Cleaning Hint message',
+    );
+  }
+  String get lastCleaningPublicHintMessage {
+    return Intl.message(
+      'last Cleaning public Hint message',
+      name: 'lastCleaningPublicHintMessage',
+      desc: 'last Cleaning public Hint message',
+    );
+  }
 }

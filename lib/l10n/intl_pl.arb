@@ -503,5 +503,35 @@
     "description": "checkbox message, last cleaning at point",
     "type": "text",
     "placeholders": {}
+  },
+  "addCleaningDialogTitle": "Add cleaning",
+  "@addCleaningDialogTitle": {
+    "description": "Add cleaning dialog title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addCleaningDialogMessage": "Add cleaning",
+  "@addCleaningDialogMessage": {
+    "description": "Add cleaning dialog message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastCleaningHintMessage": "lastCleaningHintMessage",
+  "@lastCleaningHintMessage": {
+    "description": "last Cleaning Hint message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastCleaningPublicButtonText": "Public both",
+  "@lastCleaningPublicButtonText": {
+    "description": "last Cleaning Hint message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastCleaningPublicHintMessage": "last Cleaning public Hint message",
+  "@lastCleaningPublicHintMessage": {
+    "description": "last Cleaning public Hint message",
+    "type": "text",
+    "placeholders": {}
   }
   }

@@ -61,9 +61,15 @@ class TrashPointService {
     return await pointsDataCollection.doc(pointId).delete();
   }
 
-  Future addTrashPanToPoint(String pointId) async {
+  Future setPointCleaned(String pointId) async {
     return await pointsDataCollection.doc(pointId).update({
       'trashPans': FieldValue.increment(1),
+    });
+  }
+
+  Future addTrashPanToPoint(String pointId) async {
+    return await pointsDataCollection.doc(pointId).update({
+      'cleaned': true,
     });
   }
 

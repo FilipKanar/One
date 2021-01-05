@@ -68,6 +68,12 @@ class UserDataService {
       '$achievementField': FieldValue.increment(1),
     });
   }
+  Future decreaseUserAchievementField(
+      String userDataId, String achievementField) async {
+    return await _userDataCollection.doc(userDataId).update({
+      '$achievementField': FieldValue.increment(-1),
+    });
+  }
 
   Future updateUserDisplayName(String displayName, String userDataId) async {
     return await _userDataCollection.doc(userDataId).update({

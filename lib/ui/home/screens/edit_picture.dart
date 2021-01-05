@@ -85,8 +85,8 @@ class _EditPictureState extends State<EditPicture> {
         tooltip: AppLocalization.of(context).saveAndContinueTip,
         onPressed: () {
           screenshotController.capture().then((File value) {
-            widget.callbackEditPicture(value);
             if(widget.pop) Navigator.pop(context);
+            widget.callbackEditPicture(value);
           }).catchError((onError) {
             print(onError);
           });

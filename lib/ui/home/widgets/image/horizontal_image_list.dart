@@ -4,6 +4,7 @@ import 'package:one/model/user/user_data.dart';
 import 'package:one/service/file/image_service.dart';
 import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/map/cleaning/cleaning_service.dart';
+import 'package:one/service/user_data/user_data_service.dart';
 import 'package:one/shared/dialog/delete_warning_dialog.dart';
 import 'package:one/shared/loading.dart';
 import 'package:one/ui/home/screens/image_fullscreen.dart';
@@ -68,6 +69,7 @@ class _HorizontalImageListState extends State<HorizontalImageList> {
                                               .cleaningDeleteDialogTitle,
                                           AppLocalization.of(context)
                                               .cleaningDeleteDialogMessage, () {
+                                        UserDataService().decreaseUserAchievementField(userData.userDataId, 'trashCollected');
                                         CleaningService().deleteCleaning(
                                             cleaningsList[index].cleaningId);
                                         ImageService()

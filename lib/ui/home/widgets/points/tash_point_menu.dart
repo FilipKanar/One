@@ -8,8 +8,12 @@ import 'package:one/service/comment/comment_service.dart';
 import 'package:one/service/file/image_service.dart';
 import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/service/map/cleaning/cleaning_service.dart';
+import 'package:one/service/map/trash_point/trash_point_service.dart';
 import 'package:one/service/permission/PermissionService.dart';
+import 'package:one/service/user_data/user_data_service.dart';
+import 'package:one/shared/dialog/add_cleaning_dialog.dart';
 import 'package:one/shared/dialog/warning_dialog.dart';
+import 'package:one/ui/home/screens/add_cleaning.dart';
 import 'package:one/ui/home/screens/comments.dart';
 import 'package:one/ui/home/screens/edit_picture.dart';
 import 'package:one/ui/home/widgets/image/horizontal_image_list.dart';
@@ -52,7 +56,7 @@ class _PointMenuState extends State<TrashPointMenu> {
           child: Icon(Icons.arrow_downward, color: globals.green),
         ),
         actions: <Widget>[
-          FlatButton(
+          widget.trashPoint.cleaned ? Container() : FlatButton(
             child: Icon(
               Icons.add,
               color: globals.green,
@@ -101,23 +105,12 @@ class _PointMenuState extends State<TrashPointMenu> {
           WarningDialog().showWarningDialog(context, AppLocalization.of(context).noPictureProvidedErrorTitle,
               AppLocalization.of(context).noPictureProvidedErrorMessage);
         } else {
-          callBackEditPicture(newPicture) {
-            CleaningService().addCleaning(
-                Cleaning(
-                    pointId: widget.trashPoint.pointId,
-                    userId: userData.userId),
-                newPicture,
-                userData.userDataId);
-          }
-
-          Navigator.push(
+            Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => EditPicture(
-                image: image,
-                callbackEditPicture: callBackEditPicture,
-                pop: true,
-              ),
+              builder: (context) => StreamProvider<UserData>.value(
+                  value: UserDataService(userId: userData.userId).userData,
+                  child: AddCleaning(image,widget.trashPoint),),
             ),
           );
         }

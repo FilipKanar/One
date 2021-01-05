@@ -16,7 +16,6 @@ import 'package:one/shared/dialog/warning_dialog.dart';
 import 'package:one/ui/home/screens/edit_picture.dart';
 import 'package:provider/provider.dart';
 import 'package:one/information/test_user_data.dart' as testUserData;
-import 'package:one/information/globals.dart' as globals;
 
 class AddPoint extends StatefulWidget {
   final LatLng latLng;
