@@ -72,7 +72,7 @@ class _SignInState extends State<SignUp> {
                     Padding(
                       padding: const EdgeInsets.all(4.5),
                       child: Checkbox(
-                        value: false,
+                        value: _privacyPolicy,
                         onChanged: (value) {
                           setState(() {
                             _privacyPolicy=value;
@@ -82,7 +82,7 @@ class _SignInState extends State<SignUp> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0,4.5,0,4.5),
-                      child: Text(AppLocalization.of(context).acceptPlaceholder),
+                      child: Text('${AppLocalization.of(context).acceptPlaceholder} '),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0,4.5,4.5,4.5),
@@ -100,7 +100,7 @@ class _SignInState extends State<SignUp> {
                     AuthenticationButton().buttonIcon(
                         signUpOnPressed, AppLocalization.of(context).registerPlaceholder, Icon(Icons.login)),
                     AuthenticationButton()
-                        .button(widget.toggleView, AppLocalization.of(context).logInPlaceholder),
+                        .button(widget.toggleView, AppLocalization.of(context).backPlaceholder),
                   ],
                 ),
               ],

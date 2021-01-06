@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'package:one/service/authentication/authentication_service.dart';
 import 'package:one/service/internationalization/app_localization.dart';
 import 'package:one/shared/button/authentication_button.dart';
 import 'package:one/shared/decoration/text_form_field_custom.dart';
 import 'package:one/shared/validator/validator_custom.dart';
 import 'package:toast/toast.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:one/information/test_user_data.dart' as testUserData;
 
 /*User Sign In Form*/
@@ -67,7 +65,7 @@ class _SignInState extends State<SignIn> {
                         .button(widget.toggleView, AppLocalization.of(context).registerPlaceholder),
                   ],
                 ),
-                Row(
+                /*Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
@@ -93,10 +91,10 @@ class _SignInState extends State<SignIn> {
                       ),
                     )
                   ],
-                ),
-                GoogleSignInButton(
+                ),*/
+                /*GoogleSignInButton(
                   onPressed: _signInWithGoogleOnPressed,
-                ),
+                ),*/
               ],
             ),
           ),

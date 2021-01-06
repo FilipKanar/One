@@ -1,12 +1,12 @@
 {
   "@@last_modified": "2021-01-02T17:16:41.433436",
-  "errorSignInCredentials": "Could not sign in with those credentials!",
+  "errorSignInCredentials": "Błąd logowania przy użyciu podanych danych",
   "@errorSignInCredentials": {
     "description": "Error message Sign In Credentials",
     "type": "text",
     "placeholders": {}
   },
-  "errorSignUpCredentials": "Could not sign up with those credentials",
+  "errorSignUpCredentials": "Błąd rejestracji przy użyciu podanych danych",
   "@errorSignUpCredentials": {
     "description": "Error message Sign Up Credentials",
     "type": "text",
@@ -54,7 +54,7 @@
         "type": "text",
         "placeholders": {}
       },
-    "privacyPolicyPlaceholder": "Polityka Prywatności",
+    "privacyPolicyPlaceholder": "Politykę Prywatności",
     "@privacyPolicyPlaceholder": {
         "description": "Privacy Policy Placeholder",
         "type": "text",
@@ -78,7 +78,7 @@
         "type": "text",
         "placeholders": {}
       },
-    "testUserLogInErrorMessage": "Nie można zallogować na konto testowe",
+    "testUserLogInErrorMessage": "Błąd logowania na konto testowe",
     "@testUserLogInErrorMessage": {
         "description": "Error message for overview",
         "type": "text",
@@ -90,7 +90,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "userPositionPlaceholder": "Twoja pozycja",
+  "userPositionPlaceholder": "Twoja pozycja w rankingu",
   "@userPositionPlaceholder": {
     "description": "User position",
     "type": "text",
@@ -132,7 +132,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "noPictureProvidedErrorMessage": "Zrób zdjęcie miejsca w którym zanjdują się śmieci. Zaznacz JEDEN który wyniesiesz.Ciesz się.",
+  "noPictureProvidedErrorMessage": "Zrób zdjęcie miejsca w którym znajdują się śmieci. Zaznacz JEDEN który wyniesiesz. Wynieś.",
   "@noPictureProvidedErrorMessage": {
     "description": "No picture provided during point creation error message",
     "type": "text",
@@ -186,7 +186,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "newCommentLengthValidatorText": "Comentarz musi składać się z minimum 10 znaków",
+  "newCommentLengthValidatorText": "Komentarz musi składać się z minimum 10 znaków",
   "@newCommentLengthValidatorText": {
     "description": "New comment length <10 validator text",
     "type": "text",
@@ -426,7 +426,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "testUserWarningMessage": "Jesteś zalogowany jako użytkownik testowy. Załóż konto by kontynuować.",
+  "testUserWarningMessage": "Jesteś zalogowany jako użytkownik testowy. Załóż konto aby kontynuować.",
   "@testUserWarningMessage": {
     "description": "Test User warning message",
     "type": "text",
@@ -450,31 +450,31 @@
     "type": "text",
     "placeholders": {}
   },
-  "pointNamePlaceholder": "Nazwa punktu:",
+  "pointNamePlaceholder": "Nazwa punktu",
   "@pointNamePlaceholder": {
     "description": "Point name Placeholder",
     "type": "text",
     "placeholders": {}
   },
-  "commentDeleteDialogTitle": "Delete comment",
+  "commentDeleteDialogTitle": "Usuń komentarz",
   "@commentDeleteDialogTitle": {
     "description": "Delete comment dialog title",
     "type": "text",
     "placeholders": {}
   },
-  "commentDeleteDialogMessage": "Are you sure that you want to permanently delete selected comment?",
+  "commentDeleteDialogMessage": "Czy chcesz usunąć wyubrany komentarz?",
   "@commentDeleteDialogMessage": {
     "description": "Delete comment dialog message",
     "type": "text",
     "placeholders": {}
   },
-  "pointDeleteDialogTitle": "Delete point",
+  "pointDeleteDialogTitle": "Usuń punkt",
   "@pointDeleteDialogTitle": {
     "description": "Delete point dialog message",
     "type": "text",
     "placeholders": {}
   },
-  "pointDeleteDialogMessage": "Are you sure that you want to permanently delete selected point?",
+  "pointDeleteDialogMessage": "Czy chcesz usunąć wybrany punkt?",
   "@pointDeleteDialogMessage": {
     "description": "Delete comment dialog title",
     "type": "text",
@@ -486,57 +486,63 @@
     "type": "text",
     "placeholders": {}
   },
-  "cleaningDeleteDialogTitle": "Delete Cleaning",
+  "cleaningDeleteDialogTitle": "Usuń sprzątanie",
   "@cleaningDeleteDialogTitle": {
     "description": "Delete cleaning dialog title",
     "type": "text",
     "placeholders": {}
   },
-  "cleaningDeleteDialogMessage": "Are you sure that you want to permanently delete selected cleaning?",
+  "cleaningDeleteDialogMessage": "Czy chcesz usunąć wybrane sprzątanie?",
   "@cleaningDeleteDialogMessage": {
     "description": "Delete cleaning dialog message",
     "type": "text",
     "placeholders": {}
   },
-  "lastTrashAtPointPlaceholder": "It's last trash at this point",
+  "lastTrashAtPointPlaceholder": "To był już ostatni śmieć w tym miejscu",
   "@lastTrashAtPointPlaceholder": {
     "description": "checkbox message, last cleaning at point",
     "type": "text",
     "placeholders": {}
   },
-  "addCleaningDialogTitle": "Add cleaning",
+  "addCleaningDialogTitle": "Dodaj sprzątanie",
   "@addCleaningDialogTitle": {
     "description": "Add cleaning dialog title",
     "type": "text",
     "placeholders": {}
   },
-  "addCleaningDialogMessage": "Add cleaning",
+  "addCleaningDialogMessage": "Zrób zdjęcie zaśmieconego miejsca. Zaznacz śmieć który wyrzucisz. Ciesz się czystym światem",
   "@addCleaningDialogMessage": {
     "description": "Add cleaning dialog message",
     "type": "text",
     "placeholders": {}
   },
-  "lastCleaningHintMessage": "lastCleaningHintMessage",
+  "lastCleaningHintMessage": "Po wyniesieniu ostatniego śmiecia zrób dodatkowe zdjęcie punktu",
   "@lastCleaningHintMessage": {
     "description": "last Cleaning Hint message",
     "type": "text",
     "placeholders": {}
   },
-  "lastCleaningPublicButtonText": "Public both",
+  "lastCleaningPublicButtonText": "Opublikuj oba zdjęcia",
   "@lastCleaningPublicButtonText": {
     "description": "last Cleaning Hint message",
     "type": "text",
     "placeholders": {}
   },
-  "lastCleaningPublicHintMessage": "last Cleaning public Hint message",
+  "lastCleaningPublicHintMessage": "Publikując zdjęcie czystego miejsca blokujesz możliwość dalszego sprzątania tego punktu",
   "@lastCleaningPublicHintMessage": {
     "description": "last Cleaning public Hint message",
     "type": "text",
     "placeholders": {}
   },
-  "oneAndOnlyCleaningPublicHintMessage": "oneAndOnlyCleaning Hint message",
+  "oneAndOnlyCleaningPublicHintMessage": "Publikując zdjęcie czystego miejsca blokujesz możliwość dalszego sprzątania tego punktu",
   "@oneAndOnlyCleaningPublicHintMessage": {
     "description": "oneAndOnlyCleaning Hint message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "backPlaceholder": "Back",
+  "@backPlaceholder": {
+    "description": "Back placeholder",
     "type": "text",
     "placeholders": {}
   }

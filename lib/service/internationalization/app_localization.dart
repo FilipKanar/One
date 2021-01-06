@@ -655,4 +655,11 @@ class AppLocalization {
       desc: 'oneAndOnlyCleaning Hint message',
     );
   }
+  String get backPlaceholder {
+    return Intl.message(
+      'Back',
+      name: 'backPlaceholder',
+      desc: 'Back placeholder',
+    );
+  }
 }

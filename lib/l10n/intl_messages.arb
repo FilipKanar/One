@@ -1,12 +1,12 @@
 {
   "@@last_modified": "2021-01-02T17:16:41.433436",
-  "errorSignInCredentials": "Could not sign in with those credentials",
+  "errorSignInCredentials": "We can't sign you in with this credentials",
   "@errorSignInCredentials": {
     "description": "Error message Sign In Credentials",
     "type": "text",
     "placeholders": {}
   },
-  "errorSignUpCredentials": "Could not sign up with those credentials",
+  "errorSignUpCredentials": "We can't sign you up with those credentials",
   "@errorSignUpCredentials": {
     "description": "Error message Sign Up Credentials",
     "type": "text",
@@ -14,455 +14,455 @@
   },
   "appOverview": "Overview",
   "@appOverview": {
-      "description": "Button text for signing to overview app",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Button text for signing to overview app",
+    "type": "text",
+    "placeholders": {}
+  },
   "emailPlaceholder": "Email",
   "@emailPlaceholder": {
-      "description": "Email Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Email Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "usernamePlaceholder": "Username",
   "@usernamePlaceholder": {
-      "description": "Username Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Username Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "passwordPlaceholder": "Password",
   "@passwordPlaceholder": {
-      "description": "Password Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Password Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "confirmPasswordPlaceholder": "Confirm Password",
   "@confirmPasswordPlaceholder": {
-      "description": "Confirm Password Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Confirm Password Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "logInPlaceholder": "Log In",
   "@logInPlaceholder": {
-      "description": "Log In Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Log In Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "registerPlaceholder": "Register",
   "@registerPlaceholder": {
-      "description": "Register Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Register Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "acceptPlaceholder": "Accept",
   "@acceptPlaceholder": {
-      "description": "Accept Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Accept Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "privacyPolicyPlaceholder": "Privacy Policy",
   "@privacyPolicyPlaceholder": {
-      "description": "Privacy Policy Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Privacy Policy Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "loginSuccessfulToast": "Login Successful",
   "@loginSuccessfulToast": {
-      "description": "Toast message for successful login",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Toast message for successful login",
+    "type": "text",
+    "placeholders": {}
+  },
   "registrationSuccessfulToast": "Registration Successful",
   "@registrationSuccessfulToast": {
-      "description": "Toast message for successful registration",
-      "type": "text",
-      "placeholders": {}
-    },
-  "googlePrivacyPolicyMessage": "Privacy Policy required for google authentication",
+    "description": "Toast message for successful registration",
+    "type": "text",
+    "placeholders": {}
+  },
+  "googlePrivacyPolicyMessage": "Privacy Policy is required for google authentication",
   "@googlePrivacyPolicyMessage": {
-      "description": "Error message for google authentication without privacy policy check",
-      "type": "text",
-      "placeholders": {}
-    },
-  "testUserLogInErrorMessage": "Could not sign in to test account",
+    "description": "Error message for google authentication without privacy policy check",
+    "type": "text",
+    "placeholders": {}
+  },
+  "testUserLogInErrorMessage": "We can't sign you in to test account",
   "@testUserLogInErrorMessage": {
-      "description": "Error message for overview",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Error message for overview",
+    "type": "text",
+    "placeholders": {}
+  },
   "appTitle": "One",
   "@appTitle": {
-      "description": "App title",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "App title",
+    "type": "text",
+    "placeholders": {}
+  },
   "userPositionPlaceholder": "Your position",
   "@userPositionPlaceholder": {
-      "description": "User position",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "User position",
+    "type": "text",
+    "placeholders": {}
+  },
   "userScorePlaceholder": "Your Score",
   "@userScorePlaceholder": {
-      "description": "User score",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "User score",
+    "type": "text",
+    "placeholders": {}
+  },
   "profilePlaceholder": "Profile",
   "@profilePlaceholder": {
-      "description": "Profile screen title",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Profile screen title",
+    "type": "text",
+    "placeholders": {}
+  },
   "changePlaceholder": "Change",
   "@changePlaceholder": {
-      "description": "Change",
-      "type": "text",
-      "placeholders": {}
-    },
-  "trashCollectedPlaceholder": "Trash Collected",
+    "description": "Change",
+    "type": "text",
+    "placeholders": {}
+  },
+  "trashCollectedPlaceholder": "Trashes picked",
   "@trashCollectedPlaceholder": {
-      "description": "Trash Collected",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Trash Collected",
+    "type": "text",
+    "placeholders": {}
+  },
   "pointsCreatedPlaceholder": "Points Created",
   "@pointsCreatedPlaceholder": {
-      "description": "Points created placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Points created placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "noPictureProvidedErrorTitle": "No picture provided",
   "@noPictureProvidedErrorTitle": {
-      "description": "No picture provided during point creation title",
-      "type": "text",
-      "placeholders": {}
-    },
-  "noPictureProvidedErrorMessage": "Take picture of littered place. Select ONE trash you will throw out. Be happy.",
+    "description": "No picture provided during point creation title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noPictureProvidedErrorMessage": "You need to take a picture of a littered place to begin cleaning.",
   "@noPictureProvidedErrorMessage": {
-      "description": "No picture provided during point creation error message",
-      "type": "text",
-      "placeholders": {}
-    },
-  "publicPlaceholder": "Public",
+    "description": "No picture provided during point creation error message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "publicPlaceholder": "Publish",
   "@savePlaceholder": {
-      "description": "Public placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
-  "addPointPlaceholder": "Add New Point",
+    "description": "Public placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addPointPlaceholder": "Add new trash point",
   "@addPointPlaceholder": {
-      "description": "Add New Point placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
-  "newCleaningPointTitle": "New cleaning point",
+    "description": "Add New Point placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newCleaningPointTitle": "Add new trash point",
   "@newCleaningPointTitle": {
-      "description": "New cleaning point screen title",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "New cleaning point screen title",
+    "type": "text",
+    "placeholders": {}
+  },
   "descriptionLengthValidator": "Provide description longer than 5 signs",
   "@descriptionLengthValidator": {
-      "description": "Validator message for description length < 5",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Validator message for description length < 5",
+    "type": "text",
+    "placeholders": {}
+  },
   "pointNameHintText": "Name this point",
   "@pointNameHintText": {
-      "description": "Point Name Hint Text",
-      "type": "text",
-      "placeholders": {}
-    },
-  "saveAndContinueTip": "Save and continue",
+    "description": "Point Name Hint Text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "saveAndContinueTip": "Save and publish",
   "@saveAndContinueTip": {
-      "description": "Save and continue tip text",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Save and continue tip text",
+    "type": "text",
+    "placeholders": {}
+  },
   "commentsScreenTitle": "Comments",
   "@commentsScreenTitle": {
-      "description": "Comments Screen Title text",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Comments Screen Title text",
+    "type": "text",
+    "placeholders": {}
+  },
   "newCommentHintText": "New comment",
   "@newCommentHintText": {
-      "description": "New comment hint text",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "New comment hint text",
+    "type": "text",
+    "placeholders": {}
+  },
   "newCommentLengthValidatorText": "Comment must be at least 10 characters long",
   "@newCommentLengthValidatorText": {
-      "description": "New comment length <10 validator text",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "New comment length <10 validator text",
+    "type": "text",
+    "placeholders": {}
+  },
   "newCommentAddErrorMessage": "Failed adding comment",
   "@newCommentAddErrorMessage": {
-      "description": "Error message for comment add failure",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Error message for comment add failure",
+    "type": "text",
+    "placeholders": {}
+  },
   "noCommentsToDisplayMessage": "No comments to display",
   "@noCommentsToDisplayMessage": {
-      "description": "No comments to display message",
-      "type": "text",
-      "placeholders": {}
-    },
-  "noPointsToDisplayMessage": "No Points to display",
+    "description": "No comments to display message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "noPointsToDisplayMessage": "No points to display",
   "@noPointsToDisplayMessage": {
-      "description": "No Points to display message",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "No Points to display message",
+    "type": "text",
+    "placeholders": {}
+  },
   "firstCleaningAchievementTextTitle": "First Cleaning",
   "@firstCleaningAchievementTextTitle": {
-      "description": "Achievement field title: First Cleaning",
-      "type": "text",
-      "placeholders": {}
-    },
-  "firstCleaningAchievementTextMessage": "Clean new cleaning point or contribute to existing one",
+    "description": "Achievement field title: First Cleaning",
+    "type": "text",
+    "placeholders": {}
+  },
+  "firstCleaningAchievementTextMessage": "Create new cleaning point or contribute to existing one",
   "@firstCleaningAchievementTextMessage": {
-      "description": "Achievement field message: First Cleaning ",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field message: First Cleaning ",
+    "type": "text",
+    "placeholders": {}
+  },
   "fiveCleaningAchievementTextTitle": "Five Cleanings",
   "@fiveCleaningAchievementTextTitle": {
-      "description": "Achievement field title: Five Cleanings",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Five Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
   "fiveCleaningAchievementTextMessage": "Clean Five times",
   "@fiveCleaningAchievementTextMessage": {
-      "description": "Achievement field: Clean Five times",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Clean Five times",
+    "type": "text",
+    "placeholders": {}
+  },
   "tenCleaningAchievementTextTitle": "Ten Cleanings",
   "@tenCleaningAchievementTextTitle": {
-      "description": "Achievement field title: Ten Cleanings",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Ten Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
   "tenCleaningAchievementTextMessage": "Clean Ten times",
   "@tenCleaningAchievementTextMessage": {
-      "description": "Achievement field: Clean Ten times",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Clean Ten times",
+    "type": "text",
+    "placeholders": {}
+  },
   "twentyFiveCleaningAchievementTextTitle": "Twenty Five Cleanings",
   "@twentyFiveCleaningAchievementTextTitle": {
-      "description": "Achievement field title: Twenty Five Cleanings",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Twenty Five Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
   "twentyFiveCleaningAchievementTextMessage": "Clean Twenty Five times",
   "@twentyFiveCleaningAchievementTextMessage": {
-      "description": "Achievement field: Clean Twenty Five times",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Clean Twenty Five times",
+    "type": "text",
+    "placeholders": {}
+  },
   "fiftyCleaningAchievementTextTitle": "Fifty Cleanings",
   "@fiftyFiveCleaningAchievementTextTitle": {
-      "description": "Achievement field title: Fifty Cleanings",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Fifty Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
   "fiftyFiveCleaningAchievementTextMessage": "Clean Fifty times",
   "@fiftyCleaningAchievementTextMessage": {
-      "description": "Achievement field: Clean Fifty times",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Clean Fifty times",
+    "type": "text",
+    "placeholders": {}
+  },
   "hundredCleaningAchievementTextTitle": "Hundred Cleanings",
   "@hundredFiveCleaningAchievementTextTitle": {
-      "description": "Achievement field title: Hundred Cleanings",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Hundred Cleanings",
+    "type": "text",
+    "placeholders": {}
+  },
   "hundredFiveCleaningAchievementTextMessage": "Clean Hundred times",
   "@hundredCleaningAchievementTextMessage": {
-      "description": "Achievement field: Clean Hundred times",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Clean Hundred times",
+    "type": "text",
+    "placeholders": {}
+  },
   "firstPointAchievementTextTitle": "First point",
   "@firstPointAchievementTextTitle": {
-      "description": "Achievement field title: Create One cleaning point",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Create One cleaning point",
+    "type": "text",
+    "placeholders": {}
+  },
   "firstPointAchievementTextMessage": "Create One cleaning point",
   "@firstPointAchievementTextMessage": {
-      "description": "Achievement field: Create One point",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Create One point",
+    "type": "text",
+    "placeholders": {}
+  },
   "fivePointAchievementTextTitle": "Five points",
   "@fivePointAchievementTextTitle": {
-      "description": "Achievement field title: Create Five cleaning points",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Create Five cleaning points",
+    "type": "text",
+    "placeholders": {}
+  },
   "fivePointAchievementTextMessage": "Create Five cleaning points",
   "@fivePointAchievementTextMessage": {
-      "description": "Achievement field: Create Five points",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Create Five points",
+    "type": "text",
+    "placeholders": {}
+  },
   "tenPointAchievementTextTitle": "Ten points",
   "@tenPointAchievementTextTitle": {
-      "description": "Achievement field title: Create Ten cleaning points",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Create Ten cleaning points",
+    "type": "text",
+    "placeholders": {}
+  },
   "tenPointAchievementTextMessage": "Create Ten cleaning points",
   "@tenPointAchievementTextMessage": {
-      "description": "Achievement field: Create Ten points",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Create Ten points",
+    "type": "text",
+    "placeholders": {}
+  },
   "twentyFivePointAchievementTextTitle": "Twenty five points",
   "@twentyFiveAchievementTextTitle": {
-      "description": "Achievement field title: Create Twenty five cleaning points",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Create Twenty five cleaning points",
+    "type": "text",
+    "placeholders": {}
+  },
   "twentyFivePointAchievementTextMessage": "Create Twenty five cleaning points",
   "@twentyFivePointAchievementTextMessage": {
-      "description": "Achievement field: Create Twenty five points",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Create Twenty five points",
+    "type": "text",
+    "placeholders": {}
+  },
   "fiftyPointAchievementTextTitle": "Fifty points",
   "@fiftyFiveAchievementTextTitle": {
-      "description": "Achievement field title: Create Fifty cleaning points",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field title: Create Fifty cleaning points",
+    "type": "text",
+    "placeholders": {}
+  },
   "fiftyPointAchievementTextMessage": "Create Fifty cleaning points",
   "@fiftyFivePointAchievementTextMessage": {
-      "description": "Achievement field: Create Fifty points",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Achievement field: Create Fifty points",
+    "type": "text",
+    "placeholders": {}
+  },
   "addPointButtonText": "Add new point",
   "@addPointButtonText": {
-      "description": "Button message for creating new point at current location",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Button message for creating new point at current location",
+    "type": "text",
+    "placeholders": {}
+  },
   "changeUsernamePlaceholder": "Change Username",
   "@changeUsernamePlaceholder": {
-      "description": "Change username placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Change username placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "scorePlaceholder": "Score",
   "@scorePlaceholder": {
-      "description": "Score placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Score placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "provideValidEmailValidationText": "Please provide a valid email",
   "@provideValidEmailValidationText": {
-      "description": "Email validation error message",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Email validation error message",
+    "type": "text",
+    "placeholders": {}
+  },
   "passwordLengthValidationText": "The password must be at least 6 characters long and contain at least 1 numeric and capital letter",
   "@passwordLengthValidationText": {
-      "description": "Password validation error message, The password must be at least 6 characters long and contain at least 1 numeric and capital letter",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Password validation error message, The password must be at least 6 characters long and contain at least 1 numeric and capital letter",
+    "type": "text",
+    "placeholders": {}
+  },
   "passwordConformationValidationText": "Passwords do not match",
   "@passwordConformationValidationText": {
-      "description": "Password confirmation, Passwords do not match message",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Password confirmation, Passwords do not match message",
+    "type": "text",
+    "placeholders": {}
+  },
   "usernameLengthValidationText": "The username must be at least 6 characters long",
   "@usernameLengthValidationText": {
-      "description": "The username must be at least 6 characters long",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "The username must be at least 6 characters long",
+    "type": "text",
+    "placeholders": {}
+  },
   "chooseUsernameDialogMessage": "Your username will be visible to other users",
   "@chooseUsernameDialogMessage": {
-      "description": "Your username will be visible to other users",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Your username will be visible to other users",
+    "type": "text",
+    "placeholders": {}
+  },
   "locationPermissionWarningTitle": "Permission",
   "@locationPermissionWarningTitle": {
-      "description": "Permission warning title",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Permission warning title",
+    "type": "text",
+    "placeholders": {}
+  },
   "locationPermissionWarningMessage": "Location permission required",
   "@locationPermissionWarningMessage": {
-      "description": "Permission warning message",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Permission warning message",
+    "type": "text",
+    "placeholders": {}
+  },
   "storagePermissionWarningTitle": "Storage",
   "@storagePermissionWarningTitle": {
-      "description": "Storage permission warning title",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Storage permission warning title",
+    "type": "text",
+    "placeholders": {}
+  },
   "storagePermissionWarningMessage": "Storage permission required",
   "@storagePermissionWarningMessage": {
-      "description": "Storage permission required warning message",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Storage permission required warning message",
+    "type": "text",
+    "placeholders": {}
+  },
   "testUserWarningTitle": "Test User",
   "@testUserWarningTitle": {
-      "description": "Test User",
-      "type": "text",
-      "placeholders": {}
-    },
-  "testUserWarningMessage": "You are signed in as a test user. Create an account to clean the world",
+    "description": "Test User",
+    "type": "text",
+    "placeholders": {}
+  },
+  "testUserWarningMessage": "You are signed in as a test user. Create an account to clean the world.",
   "@testUserWarningMessage": {
-      "description": "Test User warning message",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Test User warning message",
+    "type": "text",
+    "placeholders": {}
+  },
   "continuePlaceholder": "Continue",
   "@continuePlaceholder": {
-      "description": "Continue placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Continue placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "cancelPlaceholder": "Cancel",
   "@cancelPlaceholder": {
-      "description": "Cancel placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Cancel placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "allowPermissionPlaceholder": "Allow Permission",
   "@allowPermissionPlaceholder": {
-      "description": "Allow Permission Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Allow Permission Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "pointNamePlaceholder": "Point name:",
   "@pointNamePlaceholder": {
-      "description": "Point name Placeholder",
-      "type": "text",
-      "placeholders": {}
-    },
+    "description": "Point name Placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
   "commentDeleteDialogTitle": "Delete comment",
   "@commentDeleteDialogTitle": {
-      "description": "Delete comment dialog title",
-      "type": "text",
-      "placeholders": {}
-    },
-  "commentDeleteDialogMessage": "Are you sure that you want to permanently delete selected comment?",
+    "description": "Delete comment dialog title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "commentDeleteDialogMessage": "Dp you want to permanently delete selected comment?",
   "@commentDeleteDialogMessage": {
     "description": "Delete comment dialog message",
     "type": "text",
@@ -470,11 +470,11 @@
   },
   "pointDeleteDialogTitle": "Delete point",
   "@pointDeleteDialogTitle": {
-      "description": "Delete point dialog message",
-      "type": "text",
-      "placeholders": {}
-    },
-  "pointDeleteDialogMessage": "Are you sure that you want to permanently delete selected point?",
+    "description": "Delete point dialog message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pointDeleteDialogMessage": "Do you want to permanently delete selected point?",
   "@pointDeleteDialogMessage": {
     "description": "Delete comment dialog title",
     "type": "text",
@@ -498,7 +498,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "lastTrashAtPointPlaceholder": "It's last trash at this point",
+  "lastTrashAtPointPlaceholder": "It's a last trash at this point",
   "@lastTrashAtPointPlaceholder": {
     "description": "checkbox message, last cleaning at point",
     "type": "text",
@@ -510,33 +510,39 @@
     "type": "text",
     "placeholders": {}
   },
-  "addCleaningDialogMessage": "Add cleaning message",
+  "addCleaningDialogMessage": "Take a picture of littered place. Select ONE trash you'll pick up.",
   "@addCleaningDialogMessage": {
     "description": "Add cleaning dialog message",
     "type": "text",
     "placeholders": {}
   },
-  "lastCleaningHintMessage": "lastCleaningHintMessage",
+  "lastCleaningHintMessage": "You just picked up the last trash at this point. Take a picture of cleaned area",
   "@lastCleaningHintMessage": {
     "description": "last Cleaning Hint message",
     "type": "text",
     "placeholders": {}
   },
-  "lastCleaningPublicButtonText": "Public both",
+  "lastCleaningPublicButtonText": "Publish both pictures",
   "@lastCleaningPublicButtonText": {
     "description": "last Cleaning Hint message",
     "type": "text",
     "placeholders": {}
   },
-  "lastCleaningPublicHintMessage": "last Cleaning public Hint message",
+  "lastCleaningPublicHintMessage": "By adding clean area picture you'll disable contribution option at this point",
   "@lastCleaningPublicHintMessage": {
     "description": "last Cleaning public Hint message",
     "type": "text",
     "placeholders": {}
   },
-  "oneAndOnlyCleaningPublicHintMessage": "oneAndOnlyCleaning Hint message",
+  "oneAndOnlyCleaningPublicHintMessage": "By adding clean area picture you'll disable contribution option at this point",
   "@oneAndOnlyCleaningPublicHintMessage": {
     "description": "oneAndOnlyCleaning Hint message",
+    "type": "text",
+    "placeholders": {}
+  },
+  "backPlaceholder": "Back",
+  "@backPlaceholder": {
+    "description": "Back placeholder",
     "type": "text",
     "placeholders": {}
   }
