@@ -70,7 +70,6 @@ class _TrashMapState extends State<TrashMap> {
     _mapService.addListener(_chosenMarkerListener);
   }
 
-
   @override
   Widget build(BuildContext context) {
     //Current user data
@@ -78,63 +77,77 @@ class _TrashMapState extends State<TrashMap> {
     //All points to display as markers and circles
     _trashPointList = Provider.of<List<TrashPoint>>(context);
     if (_trashPointList != null) _updateMarkersAndCircles();
-    return (!widget.testUser && _locationPermissionStatus == false)
-        ? PermissionBlock(_locationPermissionCallback)
-        : Scaffold(
-            body: _userPosition == null
-                ? Loading()
-                : Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: GoogleMap(
-                      initialCameraPosition:
-                          CameraPosition(target: _userPosition, zoom: 18),
-                      mapType: MapType.hybrid,
-                      myLocationButtonEnabled: true,
-                      myLocationEnabled: true,
-                      buildingsEnabled: true,
-                      onMapCreated: _onMapCreated,
-                      circles: _circles,
-                      markers: _markers,
-                      mapToolbarEnabled: false,
-                    ),
-                  ),
-            floatingActionButton: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 9, 0),
-                  child: FloatingActionButton(
-                      heroTag: 'refreshMapBtn',
-                      child: Icon(
-                        Icons.refresh,
-                        color: globals.addPointFloatingActionButtonTextColor,
-                      ),
-                      backgroundColor:
-                          globals.addPointFloatingActionButtonColor,
-                      onPressed: () {
-                        _markersFromTrashPointList(_trashPointList);
-                        _circlesFromTrashPointList(_trashPointList);
-                      }),
-                ),
-                FloatingActionButton.extended(
-                  heroTag: 'addPointBtn',
-                  backgroundColor: globals.addPointFloatingActionButtonColor,
-                  label: Text(
-                    AppLocalization.of(context).addPointButtonText,
-                    style: TextStyle(
-                        color: globals.addPointFloatingActionButtonTextColor),
-                  ),
-                  icon: Icon(
-                    Icons.add,
-                    color: globals.addPointFloatingActionButtonTextColor,
-                  ),
-                  onPressed: () {
-                    _addPointOnPressed(userData);
-                  },
-                ),
-              ],
+
+    if (!widget.testUser) {
+      return _generateMainView(context, userData);
+    } else
+      return FutureBuilder(
+          future: PermissionService().awaitLocationPermissions(),
+          initialData: false,
+          builder: (context, snapshot) {
+            if (snapshot.hasData && snapshot.data == true) {
+              return _generateMainView(context, userData);
+            } else {
+              return PermissionBlock(_locationPermissionCallback);
+            }
+          });
+  }
+
+  Scaffold _generateMainView(BuildContext context, UserData userData) {
+    return Scaffold(
+      body: _userPosition == null
+          ? Loading()
+          : Padding(
+              padding: const EdgeInsets.all(0.0),
+              child: GoogleMap(
+                initialCameraPosition:
+                    CameraPosition(target: _userPosition, zoom: 18),
+                mapType: MapType.hybrid,
+                myLocationButtonEnabled: true,
+                myLocationEnabled: true,
+                buildingsEnabled: true,
+                onMapCreated: _onMapCreated,
+                circles: _circles,
+                markers: _markers,
+                mapToolbarEnabled: false,
+              ),
             ),
-          );
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 9, 0),
+            child: FloatingActionButton(
+                heroTag: 'refreshMapBtn',
+                child: Icon(
+                  Icons.refresh,
+                  color: globals.addPointFloatingActionButtonTextColor,
+                ),
+                backgroundColor: globals.addPointFloatingActionButtonColor,
+                onPressed: () {
+                  _markersFromTrashPointList(_trashPointList);
+                  _circlesFromTrashPointList(_trashPointList);
+                }),
+          ),
+          FloatingActionButton.extended(
+            heroTag: 'addPointBtn',
+            backgroundColor: globals.addPointFloatingActionButtonColor,
+            label: Text(
+              AppLocalization.of(context).addPointButtonText,
+              style: TextStyle(
+                  color: globals.addPointFloatingActionButtonTextColor),
+            ),
+            icon: Icon(
+              Icons.add,
+              color: globals.addPointFloatingActionButtonTextColor,
+            ),
+            onPressed: () {
+              _addPointOnPressed(userData);
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   _onMapCreated(GoogleMapController controller) async {
@@ -146,7 +159,7 @@ class _TrashMapState extends State<TrashMap> {
   _locationPermissionCallback() async {
     bool permissionCheck = await PermissionService().awaitLocationPermissions();
     setState(() {
-      _locationPermissionStatus=permissionCheck;
+      _locationPermissionStatus = permissionCheck;
     });
   }
 
@@ -187,8 +200,8 @@ class _TrashMapState extends State<TrashMap> {
             })
           : WarningDialog().showWarningDialog(
               context,
-          AppLocalization.of(context).locationPermissionWarningTitle,
-          AppLocalization.of(context).locationPermissionWarningMessage);
+              AppLocalization.of(context).locationPermissionWarningTitle,
+              AppLocalization.of(context).locationPermissionWarningMessage);
     } else
       _userPosition = globals.defaultPosition;
 
@@ -198,11 +211,13 @@ class _TrashMapState extends State<TrashMap> {
         ? image = await ImageService().getCameraImage()
         : WarningDialog().showWarningDialog(
             context,
-        AppLocalization.of(context).storagePermissionWarningTitle,
+            AppLocalization.of(context).storagePermissionWarningTitle,
             AppLocalization.of(context).storagePermissionWarningMessage);
 
     if (image == null) {
-      WarningDialog().showWarningDialog(context, AppLocalization.of(context).noPictureProvidedErrorTitle,
+      WarningDialog().showWarningDialog(
+          context,
+          AppLocalization.of(context).noPictureProvidedErrorTitle,
           AppLocalization.of(context).noPictureProvidedErrorMessage);
     } else {
       Navigator.push(
