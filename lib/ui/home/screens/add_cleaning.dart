@@ -17,8 +17,7 @@ class AddCleaning extends StatefulWidget {
   final File imageFile;
   final TrashPoint trashPoint;
 
-  AddCleaning(
-      this.imageFile, this.trashPoint);
+  AddCleaning(this.imageFile, this.trashPoint);
 
   @override
   _AddCleaningState createState() => _AddCleaningState();
@@ -43,26 +42,26 @@ class _AddCleaningState extends State<AddCleaning> {
 
   @override
   Widget build(BuildContext context) {
-
     final userData = Provider.of<UserData>(context);
 
     addCleaning(newPicture) {
       CleaningService().addCleaning(
-          Cleaning(
-              pointId: widget.trashPoint.pointId,
-              userId: userData.userId),
+          Cleaning(pointId: widget.trashPoint.pointId, userId: userData.userId),
           newPicture,
           userData.userDataId);
     }
+
     addLastCleaning(newPicture) {
-      CleaningService().addCleaning(
-          Cleaning(
-              pointId: widget.trashPoint.pointId,
-              userId: userData.userId),
-          newPicture,
-          userData.userDataId);
-      TrashPointService().setPointCleaned(widget.trashPoint.pointId);
+      Future.delayed(const Duration(milliseconds: 500), () {
+        CleaningService().addCleaning(
+            Cleaning(
+                pointId: widget.trashPoint.pointId, userId: userData.userId),
+            newPicture,
+            userData.userDataId);
+        TrashPointService().setPointCleaned(widget.trashPoint.pointId);
+      });
     }
+
     return !_wasImageEdited
         ? EditPicture(
             image: _imageFile,
@@ -75,151 +74,152 @@ class _AddCleaningState extends State<AddCleaning> {
                 title: AppLocalization.of(context).addCleaningDialogTitle,
               ),
             ),
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                          AppLocalization.of(context).addCleaningDialogMessage),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image(
-                            width: 80,
-                            height: 140,
-                            image: FileImage(_imageFile),
-                          ),
-                          Column(
-                            children: [
-                              IconButton(
-                                icon: Icon(
-                                  Icons.photo_camera_outlined,
-                                  color: Colors.lightGreen,
-                                  size: 30,
-                                ),
-                                onPressed: () async {
-                                  File temp =
-                                      await ImageService().getCameraImage();
-                                  if (temp != null) {
-                                    setState(() {
-                                      _imageFile = temp;
-                                      _wasImageEdited = false;
-                                    });
-                                  }
-                                },
-                              ),
-                              IconButton(
-                                icon: Icon(
-                                  Icons.edit,
-                                  color: Colors.lightGreen,
-                                  size: 30,
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => EditPicture(
-                                        image: _cleanImageFile,
-                                        callbackEditPicture: (File picture) {
-                                          if (picture != null)
-                                            setState(
-                                                () => _imageFile = picture);
-                                        },
-                                        pop: true,
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Checkbox(
-                              value: _lastCleaning,
-                              onChanged: (value) {
-                                setState(() {
-                                  _lastCleaning = value;
-                                });
-                              }),
-                          Text(AppLocalization.of(context)
-                              .lastTrashAtPointPlaceholder),
-                        ],
-                      ),
-                      !_lastCleaning
-                          ? AuthenticationButton().button(() {
-                              addCleaning(_imageFile);
-                              Navigator.pop(context);
-                            }, AppLocalization.of(context).publicPlaceholder)
-                          : Container(),
-                      _lastCleaning
-                          ? Column(
+            body: Center(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: <Widget>[
+                        Text(AppLocalization.of(context)
+                            .addCleaningDialogMessage),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image(
+                              width: 80,
+                              height: 140,
+                              image: FileImage(_imageFile),
+                            ),
+                            Column(
                               children: [
-                                Text(AppLocalization.of(context)
-                                    .lastCleaningHintMessage),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    _lastCleaningFile != null
-                                        ? Image(
-                                            width: 80,
-                                            height: 140,
-                                            image: FileImage(_lastCleaningFile),
-                                          )
-                                        : Container(
-                                            height: 140,
-                                            width: 50,
-                                            child: Image.asset(
-                                                'assets/logo/logo_no_text.png'),
-                                          ),
-                                    Column(
-                                      children: [
-                                        IconButton(
-                                          icon: Icon(
-                                            Icons.photo_camera_outlined,
-                                            color: Colors.lightGreen,
-                                            size: 30,
-                                          ),
-                                          onPressed: () async {
-                                            File temp = await ImageService()
-                                                .getCameraImage();
-                                            if (temp != null) {
-                                              setState(() {
-                                                _lastCleaningFile = temp;
-                                              });
-                                            }
-                                          },
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.photo_camera_outlined,
+                                    color: Colors.lightGreen,
+                                    size: 30,
+                                  ),
+                                  onPressed: () async {
+                                    File temp =
+                                        await ImageService().getCameraImage();
+                                    if (temp != null) {
+                                      setState(() {
+                                        _imageFile = temp;
+                                        _wasImageEdited = false;
+                                      });
+                                    }
+                                  },
                                 ),
-                                Text(AppLocalization.of(context)
-                                    .lastCleaningPublicHintMessage),
-                                AuthenticationButton().button(() {
-                                  addCleaning(_imageFile);
-                                  addLastCleaning(_lastCleaningFile);
-                                  Navigator.pop(context);
-                                },
-                                    AppLocalization.of(context)
-                                        .lastCleaningPublicButtonText),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.edit,
+                                    color: Colors.lightGreen,
+                                    size: 30,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => EditPicture(
+                                          image: _cleanImageFile,
+                                          callbackEditPicture: (File picture) {
+                                            if (picture != null)
+                                              setState(
+                                                  () => _imageFile = picture);
+                                          },
+                                          pop: true,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
                               ],
                             )
-                          : Container(),
-                    ],
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Checkbox(
+                                value: _lastCleaning,
+                                onChanged: (value) {
+                                  setState(() {
+                                    _lastCleaning = value;
+                                  });
+                                }),
+                            Text(AppLocalization.of(context)
+                                .lastTrashAtPointPlaceholder),
+                          ],
+                        ),
+                        !_lastCleaning
+                            ? AuthenticationButton().button(() {
+                                addCleaning(_imageFile);
+                                Navigator.pop(context);
+                              }, AppLocalization.of(context).publicPlaceholder)
+                            : Container(),
+                        _lastCleaning
+                            ? Column(
+                                children: [
+                                  Text(AppLocalization.of(context)
+                                      .lastCleaningHintMessage),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      _lastCleaningFile != null
+                                          ? Image(
+                                              width: 80,
+                                              height: 140,
+                                              image:
+                                                  FileImage(_lastCleaningFile),
+                                            )
+                                          : Container(
+                                              height: 140,
+                                              width: 50,
+                                              child: Image.asset(
+                                                  'assets/logo/logo_no_text.png'),
+                                            ),
+                                      Column(
+                                        children: [
+                                          IconButton(
+                                            icon: Icon(
+                                              Icons.photo_camera_outlined,
+                                              color: Colors.lightGreen,
+                                              size: 30,
+                                            ),
+                                            onPressed: () async {
+                                              File temp = await ImageService()
+                                                  .getCameraImage();
+                                              if (temp != null) {
+                                                setState(() {
+                                                  _lastCleaningFile = temp;
+                                                });
+                                              }
+                                            },
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  Text(AppLocalization.of(context)
+                                      .lastCleaningPublicHintMessage),
+                                  AuthenticationButton().button(() {
+                                    addCleaning(_imageFile);
+                                    addLastCleaning(_lastCleaningFile);
+                                    Navigator.pop(context);
+                                  },
+                                      AppLocalization.of(context)
+                                          .lastCleaningPublicButtonText),
+                                ],
+                              )
+                            : Container(),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ));
   }
-
-
 
   callbackEditPicture(newImage) {
     setState(() {

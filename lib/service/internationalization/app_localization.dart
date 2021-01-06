@@ -648,4 +648,11 @@ class AppLocalization {
       desc: 'last Cleaning public Hint message',
     );
   }
+  String get oneAndOnlyCleaningPublicHintMessage {
+    return Intl.message(
+      'oneAndOnlyCleaning Hint message',
+      name: 'oneAndOnlyCleaningPublicHintMessage',
+      desc: 'oneAndOnlyCleaning Hint message',
+    );
+  }
 }

@@ -533,5 +533,11 @@
     "description": "last Cleaning public Hint message",
     "type": "text",
     "placeholders": {}
+  },
+  "oneAndOnlyCleaningPublicHintMessage": "oneAndOnlyCleaning Hint message",
+  "@oneAndOnlyCleaningPublicHintMessage": {
+    "description": "oneAndOnlyCleaning Hint message",
+    "type": "text",
+    "placeholders": {}
   }
 }

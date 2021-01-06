@@ -32,7 +32,9 @@ class _AddPointState extends State<AddPoint> {
   bool wasImageEdited = false;
   final _formKey = GlobalKey<FormState>();
   File _imageFile;
-
+  bool _lastCleaning = false;
+  File _lastCleaningFile;
+  String _description;
 
   @override
   void initState() {
@@ -49,6 +51,22 @@ class _AddPointState extends State<AddPoint> {
     TrashPoint trashPoint = TrashPoint(
         geoPoint: GeoPoint(widget.latLng.latitude, widget.latLng.longitude));
     final userData = Provider.of<UserData>(context);
+
+    pointIdCallback(String pointId) {
+      print('AddPoint before addCleaning pointId:');
+      print('pointID: ' + pointId);
+      cleaningService.addCleaning(
+          Cleaning(
+              pointId: pointId,
+              userId: userData.userId,
+              downloadPictureUrl: null),
+          _imageFile,
+          userData.userDataId);
+      UserDataService()
+          .increaseUserAchievementField(
+          userData.userDataId,
+          'pointsCreated');
+    }
     return !wasImageEdited
         ? EditPicture(
             image: _imageFile,
@@ -107,7 +125,9 @@ class _AddPointState extends State<AddPoint> {
                               ? AppLocalization.of(context)
                                   .descriptionLengthValidator
                               : null,
-                          onChanged: (val) => trashPoint.description = val,
+                          onChanged: (val) {
+                            _description = val;
+                            },
                           decoration: InputDecoration(
                               hintText:
                                   AppLocalization.of(context).pointNameHintText,
@@ -120,52 +140,149 @@ class _AddPointState extends State<AddPoint> {
                                       BorderSide(color: Colors.lightGreen))),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: FlatButton(
-                          onPressed: () async {
-                            if (_formKey.currentState.validate()) {
-                              if (userData.userId == testUserData.testUserId) {
-                                WarningDialog().showWarningDialog(
-                                    context,
-                                    AppLocalization.of(context)
-                                        .testUserWarningTitle,
-                                    AppLocalization.of(context)
-                                        .testUserWarningMessage);
-                                WarningDialog().showWarningDialog(
-                                    context,
-                                    AppLocalization.of(context)
-                                        .testUserWarningTitle,
-                                    AppLocalization.of(context)
-                                        .testUserWarningMessage);
-                              } else {
-                                trashPoint.cleaned = false;
-                                trashPoint.creatorId = userData.userId;
-                                await trashPointService
-                                    .addTrashPoint(trashPoint);
-                                cleaningService.addCleaning(
-                                    Cleaning(
-                                        pointId:
-                                            trashPointService.returnPointId,
-                                        userId: userData.userId,
-                                        downloadPictureUrl: null),
-                                    _imageFile,
-                                    userData.userDataId);
-                                UserDataService().increaseUserAchievementField(
-                                    userData.userDataId, 'pointsCreated');
-                              }
-                              Navigator.pop(context);
-                            }
-                          },
-                          child: Text(
-                            AppLocalization.of(context).publicPlaceholder,
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.green,
-                            ),
-                          ),
-                        ),
+                      Row(
+                        children: [
+                          Checkbox(
+                              value: _lastCleaning,
+                              onChanged: (value) {
+                                setState(() {
+                                  _lastCleaning = value;
+                                });
+                              }),
+                          Text(AppLocalization.of(context)
+                              .lastTrashAtPointPlaceholder),
+                        ],
                       ),
+                      !_lastCleaning
+                          ? Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: FlatButton(
+                                onPressed: () async {
+                                  if (_formKey.currentState.validate()) {
+                                    if (userData.userId ==
+                                        testUserData.testUserId) {
+                                      WarningDialog().showWarningDialog(
+                                          context,
+                                          AppLocalization.of(context)
+                                              .testUserWarningTitle,
+                                          AppLocalization.of(context)
+                                              .testUserWarningMessage);
+                                      WarningDialog().showWarningDialog(
+                                          context,
+                                          AppLocalization.of(context)
+                                              .testUserWarningTitle,
+                                          AppLocalization.of(context)
+                                              .testUserWarningMessage);
+                                    } else {
+                                      trashPoint.description=_description;
+                                      trashPoint.cleaned = false;
+                                      trashPoint.creatorId = userData.userId;
+                                      await trashPointService
+                                          .addTrashPoint(trashPoint, pointIdCallback);
+                                    }
+                                    Navigator.pop(context);
+                                  }
+                                },
+                                child: Text(
+                                  AppLocalization.of(context).publicPlaceholder,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.green,
+                                  ),
+                                ),
+                              ),
+                            )
+                          : Container(),
+                      _lastCleaning
+                          ? Column(
+                              children: [
+                                Text(AppLocalization.of(context)
+                                    .lastCleaningHintMessage),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    _lastCleaningFile != null
+                                        ? Image(
+                                            width: 80,
+                                            height: 140,
+                                            image: FileImage(_lastCleaningFile),
+                                          )
+                                        : Container(
+                                            height: 140,
+                                            width: 50,
+                                            child: Image.asset(
+                                                'assets/logo/logo_no_text.png'),
+                                          ),
+                                    Column(
+                                      children: [
+                                        IconButton(
+                                          icon: Icon(
+                                            Icons.photo_camera_outlined,
+                                            color: Colors.lightGreen,
+                                            size: 30,
+                                          ),
+                                          onPressed: () async {
+                                            File temp = await ImageService()
+                                                .getCameraImage();
+                                            if (temp != null) {
+                                              setState(() {
+                                                _lastCleaningFile = temp;
+                                              });
+                                            }
+                                          },
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Text(AppLocalization.of(context)
+                                    .oneAndOnlyCleaningPublicHintMessage),
+                                FlatButton(
+                                  child: Text(AppLocalization.of(context).lastCleaningPublicButtonText),
+                                  onPressed: () async {
+                                    if (_formKey.currentState.validate() && _lastCleaningFile != null){
+                                      if (userData.userId ==
+                                          testUserData.testUserId) {
+                                        WarningDialog().showWarningDialog(
+                                            context,
+                                            AppLocalization.of(context)
+                                                .testUserWarningTitle,
+                                            AppLocalization.of(context)
+                                                .testUserWarningMessage);
+                                        WarningDialog().showWarningDialog(
+                                            context,
+                                            AppLocalization.of(context)
+                                                .testUserWarningTitle,
+                                            AppLocalization.of(context)
+                                                .testUserWarningMessage);
+                                      } else {
+                                        trashPoint.description=_description;
+                                        trashPoint.cleaned = false;
+                                        trashPoint.creatorId = userData.userId;
+                                        trashPointService
+                                            .addTrashPoint(trashPoint, pointIdCallback);
+                                        Future.delayed(
+                                            const Duration(milliseconds: 500), () {
+                                          CleaningService().addCleaning(
+                                              Cleaning(
+                                                  pointId: trashPointService
+                                                      .returnPointId,
+                                                  userId: userData.userId),
+                                              _lastCleaningFile,
+                                              userData.userDataId);
+                                          TrashPointService().setPointCleaned(
+                                              trashPointService.returnPointId);
+                                        });
+                                      }
+                                    }
+
+                                    Navigator.pop(context);
+                                  },
+                                )
+                              ],
+                            )
+                          : Container(),
                     ],
                   ),
                 ),

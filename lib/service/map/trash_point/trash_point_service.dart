@@ -33,7 +33,7 @@ class TrashPointService {
     return pointsDataCollection.where('creatorId', isEqualTo: userData.userId).snapshots().map(_trashPointDataFromSnapshot);
   }
 
-  Future addTrashPoint(TrashPoint point) async {
+  Future addTrashPoint(TrashPoint point, Function function) async {
     return await pointsDataCollection.add({
       'trashPans' : 0,
       'description': point.description,
@@ -42,8 +42,9 @@ class TrashPointService {
       'creatorId' : point.creatorId,
       'creationDateTime' : DateTime.now().millisecondsSinceEpoch,
     }).then((doc) {
-      _pointId=doc.id;
-      setPointId(doc.id);
+       _pointId=doc.id;
+       function(doc.id);
+       setPointId(doc.id);
     }).catchError((error) {
       print(error);
     });
@@ -61,13 +62,13 @@ class TrashPointService {
     return await pointsDataCollection.doc(pointId).delete();
   }
 
-  Future setPointCleaned(String pointId) async {
+  Future addTrashPanToPoint(String pointId) async {
     return await pointsDataCollection.doc(pointId).update({
       'trashPans': FieldValue.increment(1),
     });
   }
 
-  Future addTrashPanToPoint(String pointId) async {
+  Future setPointCleaned(String pointId) async {
     return await pointsDataCollection.doc(pointId).update({
       'cleaned': true,
     });
