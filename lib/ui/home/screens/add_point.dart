@@ -53,8 +53,6 @@ class _AddPointState extends State<AddPoint> {
     final userData = Provider.of<UserData>(context);
 
     pointIdCallback(String pointId) {
-      print('AddPoint before addCleaning pointId:');
-      print('pointID: ' + pointId);
       cleaningService.addCleaning(
           Cleaning(
               pointId: pointId,
@@ -86,6 +84,7 @@ class _AddPointState extends State<AddPoint> {
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
+                      Text(AppLocalization.of(context).addPointInfoMessage),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

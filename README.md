@@ -1,16 +1,36 @@
 # one
+<h1>One</h1>
 
-A new Flutter application.
+<h2>Introduction</h2>
 
-## Getting Started
+Mobile application witch helps people cooperate to clean the World. Goal of the app is to show people that picking up just one trash can clean the planet. 
 
-This project is a starting point for a Flutter application.
+<h2>How to use?</h2>
 
-A few resources to get you started if this is your first Flutter project:
+Find any garbage in public place. Take a picture of single trash or whole pile. Select exactly one trash and throw it out. Wait for other people to contribute. 
+If you have picked the last trash at selected area, take a second picture after cleaning.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<h2>Capabilities</h2>
+<ul>
+  <li>Create user account with email and password</li>
+  <li>Sign in as test user to overview the app</li>
+  <li>Google authentication - not used</li>
+  <li>Internationalization - currently available polish and english.</li>
+  <li>Browse map</li>
+  <li>Edit picture - select trash</li>
+  <li>Save created areas</li>
+  <li>Save pictures</li>
+  <li>Edit personal data</li>
+  <li>Manage comments</li>
+  <li>Manage user cleanings</li>
+  <li>Users ranking</li>
+</ul>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h2>Used Technologies</h2>
+<ul>
+  <li>Dart</li>
+  <li>Flutter</li>
+  <li>Firebase Authentication</li>
+  <li>Firebase Firestore</li>
+  <li>Firebase storage</li>
+</ul>

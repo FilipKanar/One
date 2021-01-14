@@ -545,5 +545,29 @@
     "description": "Back placeholder",
     "type": "text",
     "placeholders": {}
+  },
+  "registrationFormPlaceholder": "Registration Form",
+  "@registrationFormPlaceholder": {
+    "description": "Registration Form placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "usernameVisibilityPlaceholder": "Your username will be visible to other users.",
+  "@usernameVisibilityPlaceholder": {
+    "description": "Username visibility placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addPointInfoMessage": "New area to clean will be visible to every user. Take a picture of any dirty place, select exactly one trash and throw it out.",
+  "@addPointInfoMessage": {
+    "description": "Username visibility placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectTrashToastMessage": "Select trash",
+  "@selectTrashToastMessage": {
+    "description": "Username visibility placeholder",
+    "type": "text",
+    "placeholders": {}
   }
 }

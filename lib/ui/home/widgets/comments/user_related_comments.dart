@@ -4,12 +4,14 @@ import 'package:one/model/trash_point_comment.dart';
 import 'package:one/model/user/user_data.dart';
 import 'package:one/service/comment/comment_service.dart';
 import 'package:one/service/internationalization/app_localization.dart';
+import 'package:one/service/map/trash_point/trash_point_service.dart';
 import 'package:one/shared/dialog/comment_delete_dialog.dart';
 import 'package:one/shared/loading.dart';
 import 'package:one/ui/home/screens/comments.dart';
 import 'package:one/ui/home/widgets/comments/comment_tile.dart';
 import 'package:provider/provider.dart';
 import 'package:one/information/globals.dart' as globals;
+import 'package:one/information/test_user_data.dart' as testUserData;
 
 class UserRelatedComments extends StatefulWidget {
   final UserData userData;
@@ -39,6 +41,7 @@ class _UserRelatedCommentsState extends State<UserRelatedComments> {
                 shrinkWrap: true,
                 itemCount: userRelatedCommentsList.length,
                 itemBuilder: (BuildContext buildContext, int index) {
+
                   return Padding(
                     padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
                     child: Row(
@@ -74,36 +77,27 @@ class _UserRelatedCommentsState extends State<UserRelatedComments> {
                                         Icons.arrow_forward_outlined,
                                         color: Colors.lightGreen,
                                       ),
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        TrashPoint trashPoint = await TrashPointService().getTrashPointById(userRelatedCommentsList[index].pointId);
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => MultiProvider(
-                                              providers: [
-                                                Provider.value(
-                                                    value: widget.userData),
-                                                StreamProvider.value(
-                                                  value: CommentService()
-                                                      .getCommentsAtPoint(
-                                                          userRelatedCommentsList[
-                                                                  index]
-                                                              .pointId),
-                                                ),
-                                              ],
+                                            builder: (context) => StreamProvider.value(
+                                              value: CommentService()
+                                                  .getCommentsAtPoint(
+                                                  userRelatedCommentsList[
+                                                  index]
+                                                      .pointId),
                                               child: Comments(
-                                                trashPoint: TrashPoint(
-                                                    pointId:
-                                                        userRelatedCommentsList[
-                                                                index]
-                                                            .pointId),
-                                                userData: widget.userData,
-                                              ),
+                                        trashPoint: trashPoint,
+                                        userData: widget.userData,
+                                        ),
                                             ),
                                           ),
                                         );
                                       },
                                     ),
-                                    IconButton(
+                                    widget.userData.userId != testUserData.testUserId ? IconButton(
                                       icon: Icon(
                                         Icons.delete,
                                         color: globals.lightWarningColor,
@@ -114,7 +108,7 @@ class _UserRelatedCommentsState extends State<UserRelatedComments> {
                                             context,
                                             userRelatedCommentsList[index].pointCommentId);
                                       },
-                                    ),
+                                    ) : Container(),
                                   ],
                                 ),
                               ),

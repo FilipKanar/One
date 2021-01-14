@@ -20,7 +20,6 @@ class _CommentsListState extends State<CommentsList> {
   @override
   Widget build(BuildContext context) {
     final commentsList = Provider.of<List<TrashPointComment>>(context);
-    print(commentsList.toString());
     if(commentsList!=null){
       commentsList.sort((a,b) => a.creationDateTime.compareTo(b.creationDateTime),);
     }

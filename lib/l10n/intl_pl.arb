@@ -540,9 +540,33 @@
     "type": "text",
     "placeholders": {}
   },
-  "backPlaceholder": "Back",
+  "backPlaceholder": "Cofnij",
   "@backPlaceholder": {
     "description": "Back placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "registrationFormPlaceholder": "Formularz rejestracyjny",
+  "@registrationFormPlaceholder": {
+    "description": "Registration Form placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "usernameVisibilityPlaceholder": "Twoja nazwa użytkownika będzie widoczna dla innych użytkowników.",
+  "@usernameVisibilityPlaceholder": {
+    "description": "Username visibility placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addPointInfoMessage": "Nowy punkt do posprzątania będzie widoczny dla wszystkich użytkowników. Zrób zdjęcie zaśmieconego miejsca, zaznacz dokładnie jeden śmieć i go wyrzuć.",
+  "@addPointInfoMessage": {
+    "description": "Username visibility placeholder",
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectTrashToastMessage": "Zaznacz śmieć",
+  "@selectTrashToastMessage": {
+    "description": "Username visibility placeholder",
     "type": "text",
     "placeholders": {}
   }

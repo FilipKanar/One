@@ -662,4 +662,32 @@ class AppLocalization {
       desc: 'Back placeholder',
     );
   }
+  String get registrationFormPlaceholder {
+    return Intl.message(
+      'Back',
+      name: 'registrationFormPlaceholder',
+      desc: 'Registration Form placeholder',
+    );
+  }
+  String get usernameVisibilityPlaceholder {
+    return Intl.message(
+      'Your username will be visible to other users.',
+      name: 'usernameVisibilityPlaceholder',
+      desc: 'Username visibility placeholder',
+    );
+  }
+  String get addPointInfoMessage {
+    return Intl.message(
+      'Your username will be visible to other users.',
+      name: 'addPointInfoMessage',
+      desc: 'Username visibility placeholder',
+    );
+  }
+  String get selectTrashToastMessage {
+    return Intl.message(
+      'Select Trash',
+      name: 'selectTrashToastMessage',
+      desc: 'Username visibility placeholder',
+    );
+  }
 }

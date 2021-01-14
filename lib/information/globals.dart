@@ -19,7 +19,7 @@ final double appBarFontSize = 25.0;
   final appBarIconColor = Colors.lightGreen;
 
 //Map
-  final defaultPosition=LatLng(52.132107, 21.041710);
+  final defaultPosition=LatLng(52.132290913575815, 21.030754365057643);
   final Color addPointFloatingActionButtonColor = Colors.white;
   final Color addPointFloatingActionButtonTextColor = Colors.lightGreen;
 

@@ -19,9 +19,10 @@ class PointDeleteDialog {
             actions: <Widget>[
               new FlatButton(
                 onPressed: () async {
-                  TrashPointService().deletePoint(pointId);
-                  UserDataService().decreaseUserAchievementField(userData.userDataId, 'pointsCreated');
-                  Navigator.pop(context);
+                    TrashPointService().deletePoint(pointId);
+                    UserDataService().decreaseUserAchievementField(userData.userDataId, 'pointsCreated');
+                    UserDataService().decreaseUserAchievementField(userData.userDataId, 'trashCollected');
+                    Navigator.pop(context);
                 },
                 child: Text(AppLocalization.of(context).yesPlaceholder),),
               new FlatButton(

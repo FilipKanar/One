@@ -10,6 +10,7 @@ import 'package:one/ui/home/screens/comments.dart';
 import 'package:one/ui/home/screens/image_fullscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:one/information/globals.dart' as globals;
+import 'package:one/information/test_user_data.dart' as testUserData;
 
 class UserRelatedPoints extends StatefulWidget {
   final UserData userData;
@@ -134,14 +135,14 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                                                           userRelatedPointsList[
                                                                   index]
                                                               .pointId),
-                                                  userData: widget.userData,
+                                                  userData: user,
                                                 ),
                                               ),
                                             ),
                                           );
                                         },
                                       ),
-                                      IconButton(
+                                      user.userId != testUserData.testUserId ? IconButton(
                                         icon: Icon(
                                           Icons.delete,
                                           color: globals.lightWarningColor,
@@ -153,7 +154,7 @@ class _UserRelatedPointsState extends State<UserRelatedPoints> {
                                                   userRelatedPointsList[index]
                                                       .pointId);
                                         },
-                                      ),
+                                      ) : Container(),
                                     ],
                                   ),
                                 ),

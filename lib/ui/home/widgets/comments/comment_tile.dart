@@ -45,7 +45,7 @@ class CommentTile extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(9, 9, 9, 0),
                         child: Text(
-                          Jiffy(creationDateTime).format('kk:mm, dd.mm.yyyy'),
+                          Jiffy(creationDateTime).format('kk:mm, dd.MM.yyyy'),
                           style: TextStyle(fontSize: 9,color: globals.greenAsGreenGreenCanBe),
                         ),
                       ),

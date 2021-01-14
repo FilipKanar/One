@@ -9,7 +9,6 @@ import 'package:one/shared/dialog/warning_dialog.dart';
 import 'package:one/shared/loading.dart';
 import 'package:one/ui/home/widgets/comments/comments_list.dart';
 import 'package:provider/provider.dart';
-import 'package:one/information/globals.dart' as globals;
 import 'package:one/information/test_user_data.dart' as test_user_data;
 
 class Comments extends StatefulWidget {
@@ -30,6 +29,11 @@ class _CommentsState extends State<Comments> {
   String comment;
   String error;
   bool loading;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +111,6 @@ class _CommentsState extends State<Comments> {
                               });
                             }
                           }
-
                         }
                       },
                     )

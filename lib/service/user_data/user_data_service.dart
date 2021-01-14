@@ -43,6 +43,7 @@ class UserDataService {
     });
     return check;
   }
+
   Stream<UserData> get userData {
     return _userDataCollection
         .where('userId', isEqualTo: userId)

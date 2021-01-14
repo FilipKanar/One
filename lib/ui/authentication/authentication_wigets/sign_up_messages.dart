@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:one/service/internationalization/app_localization.dart';
 
 //Messages displayed to user during Sign Up process
 class SignUpMessages extends StatelessWidget {
@@ -8,11 +9,11 @@ class SignUpMessages extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(9),
-          child: Text('Registration Form:',textAlign: TextAlign.center, style: TextStyle(fontSize: 14),),
+          child: Text(AppLocalization.of(context).registrationFormPlaceholder,textAlign: TextAlign.center, style: TextStyle(fontSize: 14),),
         ),
         Padding(
           padding: const EdgeInsets.all(4.5),
-          child: Text('Username will be visible to other users.',textAlign: TextAlign.center, style: TextStyle(fontSize: 12),),
+          child: Text(AppLocalization.of(context).usernameVisibilityPlaceholder,textAlign: TextAlign.center, style: TextStyle(fontSize: 12),),
         ),
       ],
     );

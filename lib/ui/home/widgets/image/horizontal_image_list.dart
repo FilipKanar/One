@@ -10,6 +10,7 @@ import 'package:one/shared/loading.dart';
 import 'package:one/ui/home/screens/image_fullscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:one/information/globals.dart' as globals;
+import 'package:one/information/test_user_data.dart' as testUserData;
 
 class HorizontalImageList extends StatefulWidget {
   final List<Cleaning> cleaningsList;
@@ -56,7 +57,7 @@ class _HorizontalImageListState extends State<HorizontalImageList> {
                             child: new Image.network(
                                 cleaningsList[index].downloadPictureUrl),
                           ),
-                          cleaningsList[index].userId == userData.userId
+                          (cleaningsList[index].userId == userData.userId && userData.userId != testUserData.testUserId)
                               ? Positioned(
                                   child: IconButton(
                                     icon: Icon(

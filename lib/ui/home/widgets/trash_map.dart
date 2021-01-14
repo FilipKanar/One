@@ -101,7 +101,7 @@ class _TrashMapState extends State<TrashMap> {
               padding: const EdgeInsets.all(0.0),
               child: GoogleMap(
                 initialCameraPosition:
-                    CameraPosition(target: _userPosition, zoom: 18),
+                    CameraPosition(target: _userPosition, zoom: 15),
                 mapType: MapType.hybrid,
                 myLocationButtonEnabled: true,
                 myLocationEnabled: true,

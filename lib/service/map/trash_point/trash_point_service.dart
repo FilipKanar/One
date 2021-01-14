@@ -25,8 +25,25 @@ class TrashPointService {
     }).toList();
   }
 
+ TrashPoint trashPointDataFromSnapshot2(DocumentSnapshot doc) {
+      return TrashPoint(
+          trashPans: doc.data()['trashPans'],
+          description: doc.data()['description'],
+          pointId: doc.data()['pointId'],
+          geoPoint: doc.data()['geoPoint'],
+          cleaned: doc.data()['cleaned'],
+          creatorId: doc.data()['creatorId'],
+          creationDateTime: DateTime.fromMillisecondsSinceEpoch(doc.data()['creationDateTime']),
+      );
+  }
+
+
   Stream<List<TrashPoint>> get trashPoints {
     return pointsDataCollection.snapshots().map((event) => _trashPointDataFromSnapshot(event));
+  }
+
+  Future<TrashPoint> getTrashPointById(String pointId) {
+    return pointsDataCollection.doc(pointId).get().then((value) => trashPointDataFromSnapshot2(value));
   }
 
   Stream<List<TrashPoint>> getPointsUserRelated(UserData userData) {
@@ -54,7 +71,6 @@ class TrashPointService {
       'pointId': pointId,
     });
   }
-
 
   Future deletePoint(String pointId) async {
     await CleaningService().deleteCleaningsAtPoint(pointId);
